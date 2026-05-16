@@ -1,0 +1,1205 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>親子海外トライアル｜陽だまりラボ</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500&family=Noto+Serif+JP:wght@300;400;500&family=Cormorant+Garamond:ital,wght@0,300;1,300&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg-main:    #FAFAF8;
+      --bg-sub:     #F4F1EC;
+      --bg-tint:    #EFF5EF;
+      --bg-line:    #F0F8F2;
+      --text-main:  #1A1A1A;
+      --text-sub:   #6B6B6B;
+      --text-hint:  #A0A0A0;
+      --accent:     #5C7A5E;
+      --accent-lt:  #E8EFE8;
+      --accent-dk:  #4A6B4C;
+      --line-g:     #06C755;
+      --line-gh:    #05b34d;
+      --border:     #E2DDD6;
+      --white:      #FFFFFF;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Noto Sans JP', sans-serif;
+      font-weight: 300;
+      color: var(--text-main);
+      background: var(--bg-main);
+      line-height: 2.0;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .label-en {
+      font-family: 'Cormorant Garamond', serif;
+      font-weight: 300;
+      letter-spacing: 0.18em;
+      font-size: 12px;
+      text-transform: uppercase;
+      color: var(--text-hint);
+      display: block;
+      margin-bottom: 16px;
+      opacity: 0.85;
+    }
+
+    h2 {
+      font-family: 'Noto Serif JP', 'Yu Mincho', '游明朝', Georgia, serif;
+      font-size: clamp(22px, 4vw, 32px);
+      font-weight: 400;
+      line-height: 1.65;
+      margin-bottom: 28px;
+      letter-spacing: -0.01em;
+      font-feature-settings: "palt";
+    }
+
+    h3 {
+      font-family: 'Noto Serif JP', 'Yu Mincho', '游明朝', Georgia, serif;
+      font-size: clamp(14px, 2vw, 17px);
+      font-weight: 400;
+      line-height: 1.7;
+      font-feature-settings: "palt";
+    }
+
+    p {
+      color: var(--text-sub);
+      font-size: 15px;
+      line-height: 2.0;
+      margin-bottom: 16px;
+    }
+
+    img {
+      display: block;
+      width: 100%;
+      height: auto;
+      border-radius: 6px;
+      object-fit: cover;
+    }
+
+    .container {
+      max-width: 1040px;
+      margin: 0 auto;
+      padding: 0 40px;
+    }
+
+    section { padding: 116px 0; }
+
+    .fade-in {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.65s ease, transform 0.65s ease;
+    }
+    .fade-in.visible { opacity: 1; transform: translateY(0); }
+
+    /* LINE button */
+    .btn-line {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      background: #4A6B4C;
+      color: #fff;
+      padding: 20px 52px;
+      border-radius: 100px;
+      font-family: 'Noto Sans JP', sans-serif;
+      font-size: 15px;
+      font-weight: 500;
+      letter-spacing: 0.05em;
+      cursor: pointer;
+      transition: background 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+      text-decoration: none;
+      box-shadow: 0 4px 18px rgba(74,107,76,0.22);
+      border: none;
+    }
+    .btn-line:hover {
+      background: #3A5A3D;
+      transform: translateY(-2px);
+      box-shadow: 0 8px 24px rgba(74,107,76,0.30);
+    }
+    .btn-line-sm {
+      padding: 10px 22px;
+      font-size: 13px;
+    }
+    .btn-line svg { width: 21px; height: 21px; flex-shrink: 0; }
+
+    .note {
+      font-size: 12px;
+      color: var(--text-hint);
+      margin-top: 12px;
+      display: block;
+    }
+    .center { text-align: center; }
+
+    /* ── NAVIGATION ── */
+    .nav {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: var(--white);
+      border-bottom: 1px solid var(--border);
+      padding: 14px 40px;
+    }
+    .nav-inner {
+      max-width: 1040px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .nav-brand { display: flex; flex-direction: column; gap: 1px; }
+    .nav-service { font-size: 14px; font-weight: 400; color: var(--accent); letter-spacing: 0.04em; }
+    .nav-by { font-size: 11px; color: var(--text-hint); letter-spacing: 0.06em; }
+
+    /* ── HERO ── */
+    .hero {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      min-height: 100vh;
+      position: relative;
+      overflow: hidden;
+    }
+    .hero-left {
+      background: var(--bg-main);
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      padding: 120px 64px 80px 40px;
+    }
+    .hero-inner {
+      max-width: 440px;
+      width: 100%;
+    }
+    .hero-service-label {
+      display: block;
+      font-size: 11px;
+      font-weight: 500;
+      color: var(--accent);
+      letter-spacing: 0.18em;
+      margin-bottom: 22px;
+    }
+    .hero-h1 {
+      font-family: 'Noto Serif JP', 'Yu Mincho', '游明朝', Georgia, serif;
+      font-size: clamp(28px, 2.8vw, 44px);
+      font-weight: 400;
+      line-height: 1.45;
+      color: var(--text-main);
+      letter-spacing: -0.02em;
+      font-feature-settings: "palt";
+      margin-bottom: 18px;
+    }
+    .hero-sub-copy {
+      font-family: 'Noto Serif JP', 'Yu Mincho', '游明朝', Georgia, serif;
+      font-size: clamp(14px, 1.3vw, 17px);
+      font-weight: 300;
+      color: var(--text-sub);
+      line-height: 1.9;
+      letter-spacing: 0.01em;
+      font-feature-settings: "palt";
+      margin-bottom: 10px;
+    }
+    .hero-body-txt {
+      font-size: 13px;
+      color: var(--text-hint);
+      line-height: 1.9;
+      margin-bottom: 28px;
+    }
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 11.5px;
+      color: var(--accent);
+      background: var(--accent-lt);
+      border: 1px solid rgba(92,122,94,0.22);
+      padding: 6px 16px;
+      border-radius: 100px;
+      letter-spacing: 0.06em;
+      margin-bottom: 28px;
+    }
+    .hero-badge-dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--accent);
+      flex-shrink: 0;
+    }
+    .hero-cta-wrap { margin-bottom: 18px; }
+    .hero-brand-note {
+      display: block;
+      font-size: 11px;
+      color: var(--text-hint);
+      letter-spacing: 0.12em;
+    }
+    .hero-right {
+      position: relative;
+      overflow: hidden;
+    }
+    .hero-right img {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
+    }
+    .hero-scroll {
+      position: absolute;
+      bottom: 30px;
+      left: 25%;
+      transform: translateX(-50%);
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 11px;
+      letter-spacing: 0.2em;
+      color: var(--text-hint);
+      z-index: 1;
+    }
+
+    /* ── TWO COLUMN ── */
+    .two-col {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 64px;
+      align-items: center;
+    }
+    .two-col.img-right > :first-child { order: 2; }
+    .two-col.img-right > :last-child  { order: 1; }
+
+    /* ── CHECKLIST (card style) ── */
+    .checklist { list-style: none; margin: 20px 0; }
+    .checklist li {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      font-size: 14px;
+      color: var(--text-sub);
+      line-height: 1.75;
+      padding: 11px 16px;
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      margin-bottom: 8px;
+      transition: border-color 0.2s;
+    }
+    .checklist li:hover { border-color: var(--accent); }
+    .checklist li::before {
+      content: '—';
+      color: var(--accent);
+      font-size: 13px;
+      flex-shrink: 0;
+      margin-top: 1px;
+    }
+
+    /* ── EMPATHY CARDS (こんなことを感じていませんか) ── */
+    .empathy-list {
+      list-style: none;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 14px;
+      margin: 44px 0 0;
+    }
+    .empathy-card {
+      background: #f9f5ef;
+      border: 1px solid rgba(175,148,112,0.2);
+      border-radius: 10px;
+      padding: 22px 22px 20px;
+      display: flex;
+      align-items: flex-start;
+      gap: 13px;
+      font-size: 14px;
+      color: var(--text-sub);
+      line-height: 1.85;
+      box-shadow: 0 1px 8px rgba(0,0,0,0.032);
+    }
+    .empathy-card:last-child { grid-column: 2; }
+    .empathy-icon {
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: var(--accent);
+      opacity: 0.65;
+      flex-shrink: 0;
+      margin-top: 7px;
+    }
+
+    .closing-text {
+      margin-top: 28px;
+      padding-top: 28px;
+      border-top: 1px solid var(--border);
+    }
+
+    /* ── STORY QUOTE ── */
+    .story-quote {
+      font-family: 'Cormorant Garamond', serif;
+      font-style: italic;
+      font-size: clamp(20px, 3vw, 28px);
+      color: var(--accent);
+      line-height: 1.9;
+      border-left: 2px solid var(--accent);
+      padding-left: 20px;
+      margin: 28px 0;
+      font-feature-settings: "palt";
+      letter-spacing: 0.02em;
+    }
+    /* Story本文の読みやすさ */
+    .two-col p {
+      line-height: 2.1;
+    }
+    .story-disclaimer {
+      margin-top: 28px;
+      padding-top: 20px;
+      border-top: 1px solid var(--border);
+      font-size: 12px;
+      color: var(--text-hint);
+      line-height: 1.85;
+    }
+
+    /* ── ABOUT ── */
+    .about-lead { max-width: 600px; margin-bottom: 48px; }
+    .about-lead p:last-child { margin-bottom: 0; }
+    .about-lead p { line-height: 2.1; }
+
+    /* ── FOUR CARDS ── */
+    .four-cards {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 18px;
+      margin-bottom: 36px;
+    }
+    .feature-card {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 28px 24px;
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+    .feature-card:hover { transform: translateY(-3px); box-shadow: 0 8px 24px rgba(0,0,0,0.07); }
+    .feature-num {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 22px;
+      font-weight: 300;
+      color: var(--accent);
+      margin-bottom: 10px;
+    }
+    .feature-card h3 { color: var(--text-main); margin-bottom: 10px; }
+    .feature-card p { font-size: 14px; margin-bottom: 0; }
+
+    /* ── OUTCOME BLOCK ── */
+    .outcome-block {
+      margin-top: 40px;
+      padding: 36px 40px;
+      background: var(--bg-sub);
+      border-radius: 8px;
+      border-left: 3px solid var(--accent);
+    }
+    .outcome-block > p:first-child {
+      font-size: 15px;
+      color: var(--text-main);
+      font-weight: 400;
+      margin-bottom: 16px;
+    }
+    .outcome-list { list-style: none; margin: 0 0 16px; }
+    .outcome-list li {
+      font-size: 14px;
+      color: var(--text-sub);
+      line-height: 1.8;
+      padding-left: 16px;
+      position: relative;
+      margin-bottom: 6px;
+    }
+    .outcome-list li::before {
+      content: '·';
+      position: absolute;
+      left: 0;
+      color: var(--accent);
+      font-weight: bold;
+    }
+    .outcome-block > p:last-child { margin-bottom: 0; font-size: 14px; }
+
+    /* ── EXPERIENCE CARDS (想定している過ごし方) ── */
+    .exp-intro { max-width: 600px; margin-bottom: 32px; }
+    .exp-intro p:last-child { margin-bottom: 0; }
+    .exp-intro p { line-height: 2.1; }
+    .exp-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+      margin-bottom: 28px;
+    }
+    .exp-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 14px;
+      padding: 15px 18px;
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      transition: border-color 0.2s;
+    }
+    .exp-item:hover { border-color: var(--accent); }
+    .exp-dash {
+      width: 18px;
+      height: 2px;
+      background: var(--accent);
+      flex-shrink: 0;
+      margin-top: 11px;
+    }
+    .exp-item p { font-size: 14px; margin-bottom: 0; line-height: 1.7; }
+    .exp-note {
+      font-size: 12px;
+      color: var(--text-hint);
+      line-height: 1.85;
+      padding-top: 20px;
+      border-top: 1px solid var(--border);
+    }
+
+    /* ── LINE RECEIVE (LINEで受け取れるもの) ── */
+    .line-receive-intro { max-width: 540px; margin: 0 auto 32px; text-align: center; }
+    .line-items-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 11px;
+      margin-bottom: 28px;
+    }
+    .line-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      padding: 13px 17px;
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+    }
+    .line-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--line-g);
+      flex-shrink: 0;
+      margin-top: 7px;
+    }
+    .line-item p { font-size: 14px; margin-bottom: 0; line-height: 1.7; }
+    .line-item--span { grid-column: 1 / -1; }
+    @media (min-width: 769px) {
+      .line-item--span { max-width: calc(50% - 6px); }
+    }
+    .line-notice {
+      background: var(--accent-lt);
+      border-radius: 8px;
+      padding: 22px 28px;
+      margin-bottom: 40px;
+      text-align: center;
+    }
+    .line-notice p { font-size: 14px; color: var(--accent-dk); margin-bottom: 0; }
+
+    /* ── STATUS GRID ── */
+    .status-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+      margin: 44px 0 0;
+    }
+    .status-card {
+      background: var(--white);
+      border: 1px solid rgba(214,204,188,0.55);
+      border-radius: 14px;
+      padding: 28px 20px 24px;
+      text-align: center;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.038);
+    }
+    .status-icon {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      background: rgba(160,139,106,0.09);
+      margin: 0 auto 16px;
+      color: #A38B6A;
+    }
+    .status-icon svg { width: 20px; height: 20px; }
+    .status-en {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 10px;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--text-hint);
+      display: block;
+      margin-bottom: 6px;
+    }
+    .status-ja {
+      font-size: 15px;
+      font-weight: 400;
+      color: var(--text-main);
+      display: block;
+      margin-bottom: 14px;
+    }
+    .status-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      background: var(--bg-sub);
+      color: var(--text-hint);
+      font-size: 10.5px;
+      padding: 4px 13px;
+      border-radius: 100px;
+      letter-spacing: 0.04em;
+      border: 1px solid rgba(200,188,172,0.4);
+    }
+    .status-badge::before {
+      content: '';
+      width: 5px;
+      height: 5px;
+      border-radius: 50%;
+      background: var(--accent);
+      opacity: 0.6;
+      flex-shrink: 0;
+    }
+    .coming-lead {
+      max-width: 560px;
+      margin: 0 auto;
+      text-align: center;
+    }
+    .coming-lead p { font-size: 14px; line-height: 2.0; }
+    .coming-lead p:last-child { margin-bottom: 0; }
+
+    /* ── ACCORDION ── */
+    .accordion { border-top: 1px solid var(--border); }
+    .accordion-item { border-bottom: 1px solid var(--border); }
+    .accordion-toggle {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      width: 100%;
+      padding: 22px 0;
+      background: none;
+      border: none;
+      cursor: pointer;
+      text-align: left;
+      font-family: 'Noto Sans JP', sans-serif;
+      font-size: 15px;
+      font-weight: 400;
+      color: var(--text-main);
+      line-height: 1.6;
+    }
+    .acc-icon {
+      flex-shrink: 0;
+      width: 24px;
+      height: 24px;
+      border: 1px solid var(--border);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-left: 16px;
+      font-size: 16px;
+      color: var(--accent);
+      line-height: 1;
+      transition: transform 0.3s;
+    }
+    .accordion-item.open .acc-icon { transform: rotate(45deg); }
+    .accordion-body { max-height: 0; overflow: hidden; transition: max-height 0.4s ease; }
+    .accordion-body-inner { padding-bottom: 24px; }
+    .accordion-body p { font-size: 14px; margin-bottom: 8px; }
+    .accordion-body p:last-child { margin-bottom: 0; }
+
+    /* ── CLOSING ── */
+    .closing-sec {
+      position: relative;
+      min-height: 560px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 100px 40px;
+      overflow: hidden;
+    }
+    .closing-bg {
+      position: absolute;
+      inset: 0;
+      background-image: url('https://images.unsplash.com/photo-1476514525535-07fb3b4ae5f1?w=1600&q=80&auto=format&fit=crop');
+      background-size: cover;
+      background-position: center;
+    }
+    .closing-overlay { position: absolute; inset: 0; background: rgba(0,0,0,0.44); }
+    .closing-content { position: relative; z-index: 1; max-width: 620px; color: #fff; }
+    .closing-title {
+      font-family: 'Noto Serif JP', 'Yu Mincho', '游明朝', Georgia, serif;
+      font-size: clamp(24px, 4.5vw, 40px);
+      font-weight: 300;
+      line-height: 1.7;
+      margin-bottom: 20px;
+      color: #fff;
+      letter-spacing: -0.01em;
+      font-feature-settings: "palt";
+    }
+    .closing-sub {
+      font-size: 14px;
+      color: rgba(255,255,255,0.78);
+      margin-bottom: 48px;
+      line-height: 1.9;
+    }
+
+    /* ── FOOTER ── */
+    footer { background: var(--text-main); color: #fff; padding: 48px 40px; text-align: center; }
+    .footer-inner { max-width: 1040px; margin: 0 auto; }
+    .footer-title { font-size: 15px; font-weight: 400; letter-spacing: 0.05em; }
+    .footer-en {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 11px;
+      letter-spacing: 0.2em;
+      color: rgba(255,255,255,0.38);
+      text-transform: uppercase;
+      display: block;
+      margin-top: 4px;
+      margin-bottom: 28px;
+    }
+    .footer-links { display: flex; justify-content: center; gap: 32px; margin-bottom: 28px; flex-wrap: wrap; }
+    .footer-links a { color: rgba(255,255,255,0.5); text-decoration: none; font-size: 13px; transition: color 0.2s; }
+    .footer-links a:hover { color: #fff; }
+    .footer-copy { font-size: 12px; color: rgba(255,255,255,0.3); }
+
+    /* ── WIDE IMAGE ── */
+    .wide-img { margin-bottom: 52px; }
+    .wide-img img { height: 340px; border-radius: 8px; }
+
+    /* ── SECTION SPACER HELPERS ── */
+    .sec-rule {
+      width: 36px;
+      height: 2px;
+      background: var(--accent);
+      margin-bottom: 18px;
+    }
+    .sec-rule--center { margin: 0 auto 18px; }
+
+    /* ── CTA BLOCK & MICRO COPY ── */
+    .cta-block {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      padding: 16px 0 0;
+    }
+    .cta-microcopy {
+      font-size: 12px;
+      color: var(--text-hint);
+      line-height: 2.0;
+      margin-bottom: 22px;
+      letter-spacing: 0.02em;
+    }
+    .cta-microcopy--light {
+      color: rgba(255,255,255,0.52);
+    }
+
+    /* ── CTA WRAP ── */
+    .cta-wrap {
+      text-align: center;
+      padding: 56px 40px;
+      background: var(--white);
+      border-radius: 12px;
+      border: 1px solid var(--border);
+      box-shadow: 0 4px 24px rgba(0,0,0,0.04);
+    }
+    .cta-wrap h2 { margin-bottom: 14px; }
+    .cta-wrap .cta-desc { max-width: 480px; margin: 0 auto 36px; font-size: 14px; }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 768px) {
+      section { padding: 76px 0; }
+      .container { padding: 0 22px; }
+      .nav { padding: 13px 20px; }
+      .two-col { grid-template-columns: 1fr; gap: 28px; }
+      .two-col.img-right > :first-child { order: 0; }
+      .two-col.img-right > :last-child  { order: 0; }
+      .four-cards { grid-template-columns: 1fr; gap: 13px; }
+      .exp-grid { grid-template-columns: 1fr; gap: 10px; }
+      .line-items-grid { grid-template-columns: 1fr; gap: 10px; }
+      .status-grid { grid-template-columns: 1fr 1fr; gap: 13px; }
+      .status-card { padding: 22px 16px 20px; }
+      .outcome-block { padding: 24px 20px; }
+      .closing-sec { padding: 64px 20px; }
+      .cta-wrap { padding: 40px 22px; }
+      footer { padding: 40px 20px; }
+      .line-notice { padding: 18px 20px; }
+      .wide-img img { height: 220px; }
+      .hero { grid-template-columns: 1fr; min-height: auto; }
+      .hero-left { justify-content: flex-start; padding: 100px 32px 52px; order: 1; }
+      .hero-inner { max-width: 100%; }
+      .hero-right { height: 52vw; min-height: 240px; order: 2; }
+      .hero-scroll { left: 50%; bottom: calc(52vw + 16px); }
+      .empathy-list { grid-template-columns: 1fr 1fr; }
+      .empathy-card:last-child { grid-column: auto; }
+    }
+    @media (max-width: 480px) {
+      .status-grid { grid-template-columns: 1fr; gap: 10px; }
+      .btn-line { width: 100%; justify-content: center; font-size: 14px; padding: 16px 24px; }
+      .hero-left { padding: 88px 22px 44px; }
+      .hero-right { height: 58vw; }
+      .empathy-list { grid-template-columns: 1fr; gap: 10px; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="nav">
+  <div class="nav-inner">
+    <div class="nav-brand">
+      <span class="nav-service">親子海外トライアル</span>
+      <span class="nav-by">陽だまりラボ</span>
+    </div>
+    <a href="#line-section" class="btn-line btn-line-sm">LINEで公開情報を受け取る</a>
+  </div>
+</nav>
+
+<!-- 01 HERO -->
+<section class="hero">
+  <div class="hero-left fade-in">
+    <div class="hero-inner">
+      <span class="hero-service-label">親子海外トライアル</span>
+      <h1 class="hero-h1">いきなり留学・移住を<br>決める前に。</h1>
+      <p class="hero-sub-copy">まず短く試してみる、という選択肢。</p>
+      <p class="hero-body-txt">親子で一度、海外で学び・過ごす感覚を試してみる。</p>
+      <span class="hero-badge"><span class="hero-badge-dot"></span>公開準備中｜LINEで公開情報をお届け</span>
+      <p style="font-size:12px;color:var(--text-hint);line-height:1.8;margin-bottom:28px;">価格・日程・渡航先・内容は現在調整中です。</p>
+      <div class="hero-cta-wrap">
+        <a href="#line-section" class="btn-line">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M19.365 9.863c.349 0 .63.285.63.631 0 .345-.281.63-.63.63H17.61v1.125h1.755c.349 0 .63.283.63.63 0 .344-.281.629-.63.629h-2.386c-.345 0-.627-.285-.627-.629V8.108c0-.345.282-.63.627-.63h2.386c.349 0 .63.285.63.63 0 .349-.281.63-.63.63H17.61v1.125h1.755zm-3.855 3.016c0 .27-.174.51-.432.596-.064.021-.133.031-.199.031-.211 0-.391-.09-.51-.25l-2.443-3.317v2.94c0 .344-.279.629-.631.629-.346 0-.626-.285-.626-.629V8.108c0-.27.173-.51.43-.595.06-.023.136-.033.194-.033.195 0 .375.104.495.254l2.462 3.33V8.108c0-.345.282-.63.63-.63.345 0 .63.285.63.63v4.771zm-5.741 0c0 .344-.282.629-.631.629-.345 0-.627-.285-.627-.629V8.108c0-.345.282-.63.627-.63.349 0 .631.285.631.63v4.771zm-2.466.629H4.917c-.345 0-.63-.285-.63-.629V8.108c0-.345.285-.63.63-.63.348 0 .63.285.63.63v4.141h1.756c.348 0 .629.283.629.63 0 .344-.281.629-.629.629M24 10.314C24 4.943 18.615.572 12 .572S0 4.943 0 10.314c0 4.811 4.27 8.842 10.035 9.608.391.082.923.258 1.058.59.12.301.079.766.038 1.08l-.164 1.02c-.045.301-.24 1.186 1.049.645 1.291-.539 6.916-4.078 9.436-6.975C23.176 14.393 24 12.458 24 10.314"/></svg>
+          LINEで公開情報を受け取る
+        </a>
+      </div>
+      <span class="hero-brand-note">陽だまりラボ</span>
+    </div>
+  </div>
+  <div class="hero-right">
+    <img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=1200&q=80&auto=format&fit=crop" alt="海外の景色">
+  </div>
+  <div class="hero-scroll">SCROLL ↓</div>
+</section>
+
+<!-- 02 OUR STORY -->
+<section style="background:var(--bg-sub);">
+  <div class="container">
+    <div class="two-col fade-in">
+      <div>
+        <span class="label-en">Our Story</span>
+        <h2>海外を経験したから、<br>日本を選べた。</h2>
+        <p>陽だまりラボのスタッフの中には、子どもと一緒に海外での滞在を経験したメンバーがいます。</p>
+        <p>いくつかの環境に触れたあと、その子が最終的に選んだのは——</p>
+        <div class="story-quote">「日本がいい」</div>
+        <p>でも私たちは、それを失敗だとは考えていません。</p>
+        <p>海外を経験したからこそ、日本という選択に自信を持てた。そしてその子の中にはきっと今も、「海外にも戻れる場所がある」という感覚が残っています。</p>
+        <p>選択肢は、実際に選ばなくても、持っているだけで安心になることがあります。</p>
+        <p>親子海外トライアルは、海外を正解として押し出すサービスではありません。この子に海外という選択肢を考えてよいのか——その問いを、親子で一度試してみるための入口です。</p>
+        <p class="story-disclaimer">※ このストーリーは、陽だまりラボの考え方の背景にある実体験をもとにしており、今回のプログラム内容そのものを示すものではありません。</p>
+      </div>
+      <div>
+        <img src="https://images.unsplash.com/photo-1499346030926-9a72daac6c63?w=800&q=80&auto=format&fit=crop" alt="海と空の風景" style="height:500px;">
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 03 こんなことを感じていませんか -->
+<section style="background:var(--bg-main);">
+  <div class="container">
+    <div class="center fade-in">
+      <span class="label-en">For Your Family</span>
+      <h2>こんなことを<br>感じていませんか？</h2>
+    </div>
+    <ul class="empathy-list">
+      <li class="empathy-card fade-in">
+        <span class="empathy-icon"></span>
+        <span>親子留学や教育移住を少し調べ始めている</span>
+      </li>
+      <li class="empathy-card fade-in">
+        <span class="empathy-icon"></span>
+        <span>でも、いきなり長期留学や移住を決めるのは不安</span>
+      </li>
+      <li class="empathy-card fade-in">
+        <span class="empathy-icon"></span>
+        <span>日本の学校だけを前提にしてよいのか、迷っている</span>
+      </li>
+      <li class="empathy-card fade-in">
+        <span class="empathy-icon"></span>
+        <span>一般的な親子留学は語学中心に見えて、少し違和感がある</span>
+      </li>
+      <li class="empathy-card fade-in">
+        <span class="empathy-icon"></span>
+        <span>この子が環境の違いの中で、どんな反応を見せるのか知りたい</span>
+      </li>
+      <li class="empathy-card fade-in">
+        <span class="empathy-icon"></span>
+        <span>中学進学の前に、家族で選択肢を整理しておきたい</span>
+      </li>
+      <li class="empathy-card fade-in">
+        <span class="empathy-icon"></span>
+        <span>海外を選ぶ・選ばないを決める前に、親子で一度短く試してみたい</span>
+      </li>
+    </ul>
+    <div class="closing-text fade-in" style="max-width:560px;margin-left:auto;margin-right:auto;">
+      <p style="color:var(--text-main);margin-bottom:8px;">親子海外トライアルは、海外を決めるためのプログラムではありません。</p>
+      <p style="margin-bottom:0;">海外という選択肢を、この子にどう考えてよいのか。それを親子で確かめるために、まず短く試すプログラムです。</p>
+    </div>
+  </div>
+</section>
+
+<!-- 04 親子海外トライアルとは -->
+<section style="background:var(--bg-sub);">
+  <div class="container fade-in">
+    <div class="about-lead">
+      <span class="label-en">About</span>
+      <h2>親子海外トライアルとは</h2>
+      <p>親子海外トライアルは、海外生活・親子留学・教育移住を視野に入れているご家庭が、いきなり大きな決断をする前に、海外で学び・過ごす感覚を短く試してみるプログラムです。</p>
+      <p>現地では、言葉や文化が異なる環境に触れる時間を調整予定です。ただし、このサービスの中心は、語学力の向上そのものではありません。</p>
+      <p>その子のままで、海外に触れたとき、子どもがどんな表情を見せるのか。親子がその環境をどう感じるのか——その体験を、帰国後に家族で次の選択について話すための材料にしていきます。</p>
+      <p style="margin-bottom:0;color:var(--text-hint);font-size:13px;">対象：小学生のお子さまがいるご家庭。未就学児・中学生のご家庭も、目的やご家庭の状況に応じて個別にご相談いただけます。</p>
+    </div>
+    <img src="https://images.unsplash.com/photo-1529156069898-49953e39b3ac?w=1200&q=80&auto=format&fit=crop" alt="子どもが何かに興味を持っている" style="height:380px;border-radius:8px;">
+  </div>
+</section>
+
+<!-- 05 このプログラムで持ち帰るもの -->
+<section style="background:var(--bg-main);">
+  <div class="container fade-in">
+    <div class="wide-img">
+      <img src="https://images.unsplash.com/photo-1501854140801-50d01698950b?w=1200&q=80&auto=format&fit=crop" alt="親子が並んで海を眺めている">
+    </div>
+    <span class="label-en">What You Bring Back</span>
+    <h2>このプログラムで<br>持ち帰るもの</h2>
+    <p style="max-width:620px;margin-bottom:40px;">大切にしているのは、語学力ではなく、<strong style="color:var(--text-main);font-weight:500;">家族で次の選択について話すための材料</strong>です。</p>
+    <div class="four-cards">
+      <div class="feature-card">
+        <div class="feature-num">01</div>
+        <h3>海外に触れたとき、子どもがどんな表情を見せたのか</h3>
+        <p>その子が言葉も文化も異なる環境の中で、何を感じ、どんな顔をしていたのか。</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-num">02</div>
+        <h3>何に安心し、何に戸惑ったのか</h3>
+        <p>環境の中で安心したこと、戸惑ったこと。その子の反応が、家族の手がかりになります。</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-num">03</div>
+        <h3>親子として、その環境をどう感じたのか</h3>
+        <p>子どもだけでなく、親も一緒に感じたこと。親子ではじめて共有できる感覚があります。</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-num">04</div>
+        <h3>海外という選択肢を、今後どう考えたいのか</h3>
+        <p>帰国後に、家族として次の選択について話すための出発点をつくります。</p>
+      </div>
+    </div>
+    <div class="outcome-block">
+      <p>海外を選ぶことだけが成果ではありません。</p>
+      <ul class="outcome-list">
+        <li>海外を知った上で、日本を選ぶ</li>
+        <li>今はまだ早いと分かる</li>
+        <li>別の選択肢も含めて考える</li>
+      </ul>
+      <p>それも、家族にとって大切な判断材料です。</p>
+    </div>
+  </div>
+</section>
+
+<!-- 06 想定している過ごし方 (NEW) -->
+<section style="background:var(--bg-tint);">
+  <div class="container fade-in">
+    <span class="label-en">Imagined Experience</span>
+    <h2>想定している過ごし方</h2>
+    <div class="exp-intro">
+      <p>現在、現地での内容は調整中です。</p>
+      <p>親子海外トライアルでは、たくさんの予定を詰め込むことよりも、親子が海外で学び・過ごす感覚に触れたとき、何を感じるのかを大切にします。</p>
+      <p>たとえば、以下のような時間を想定しています。</p>
+    </div>
+    <div class="exp-grid">
+      <div class="exp-item">
+        <div class="exp-dash"></div>
+        <p>海外で学びに触れる時間</p>
+      </div>
+      <div class="exp-item">
+        <div class="exp-dash"></div>
+        <p>現地の街やお店で過ごす時間</p>
+      </div>
+      <div class="exp-item">
+        <div class="exp-dash"></div>
+        <p>食事や移動を親子で体験する時間</p>
+      </div>
+      <div class="exp-item">
+        <div class="exp-dash"></div>
+        <p>言葉や文化が異なる環境に触れる時間</p>
+      </div>
+      <div class="exp-item">
+        <div class="exp-dash"></div>
+        <p>その日、心に残った場面を写真で残す時間</p>
+      </div>
+      <div class="exp-item">
+        <div class="exp-dash"></div>
+        <p>帰国後に、家族で次の選択を話すためのふり返り</p>
+      </div>
+    </div>
+    <p class="exp-note">※ 実際の内容は、渡航先・滞在日数・現地協力先との調整後にご案内します。</p>
+  </div>
+</section>
+
+<!-- 07 LINEで受け取れるもの (NEW) -->
+<section id="line-section" style="background:var(--bg-sub);">
+  <div class="container fade-in">
+    <div class="line-receive-intro">
+      <span class="label-en" style="display:block;text-align:center;">LINE · Coming Soon</span>
+      <h2 style="text-align:center;margin-bottom:16px;">LINEで受け取れるもの</h2>
+      <p style="text-align:center;margin-bottom:0;">現在、親子海外トライアルは公開に向けて準備中です。<br>LINEでは、以下のような情報をお届けする予定です。</p>
+    </div>
+    <div class="line-items-grid">
+      <div class="line-item">
+        <div class="line-dot"></div>
+        <p>公開準備状況</p>
+      </div>
+      <div class="line-item">
+        <div class="line-dot"></div>
+        <p>募集開始のお知らせ</p>
+      </div>
+      <div class="line-item">
+        <div class="line-dot"></div>
+        <p>渡航先や滞在イメージが整った際の案内</p>
+      </div>
+      <div class="line-item">
+        <div class="line-dot"></div>
+        <p>親子海外トライアルの考え方</p>
+      </div>
+      <div class="line-item">
+        <div class="line-dot"></div>
+        <p>対象になりそうなご家庭の目安</p>
+      </div>
+      <div class="line-item">
+        <div class="line-dot"></div>
+        <p>必要に応じた事前アンケート</p>
+      </div>
+      <div class="line-item line-item--span">
+        <div class="line-dot"></div>
+        <p>初期モニター募集を行う場合の先行案内</p>
+      </div>
+    </div>
+    <div class="line-notice">
+      <p>まだ正式募集は開始していません。内容が整い次第、LINEで公開情報をお届けします。</p>
+      <p style="margin-top:8px;margin-bottom:0;font-size:13px;">初期モニター募集を行う場合は、LINE登録者の方へ先行してご案内します。</p>
+    </div>
+    <div class="cta-block">
+      <p class="cta-microcopy">
+        ＼強引な勧誘や売り込みはありません／<br>
+        内容が整い次第、LINEで公開情報をお届けします。<br>
+        初期モニター募集を行う場合も、LINE登録者の方へ先行してご案内します。
+      </p>
+      <a href="#" class="btn-line">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M19.365 9.863c.349 0 .63.285.63.631 0 .345-.281.63-.63.63H17.61v1.125h1.755c.349 0 .63.283.63.63 0 .344-.281.629-.63.629h-2.386c-.345 0-.627-.285-.627-.629V8.108c0-.345.282-.63.627-.63h2.386c.349 0 .63.285.63.63 0 .349-.281.63-.63.63H17.61v1.125h1.755zm-3.855 3.016c0 .27-.174.51-.432.596-.064.021-.133.031-.199.031-.211 0-.391-.09-.51-.25l-2.443-3.317v2.94c0 .344-.279.629-.631.629-.346 0-.626-.285-.626-.629V8.108c0-.27.173-.51.43-.595.06-.023.136-.033.194-.033.195 0 .375.104.495.254l2.462 3.33V8.108c0-.345.282-.63.63-.63.345 0 .63.285.63.63v4.771zm-5.741 0c0 .344-.282.629-.631.629-.345 0-.627-.285-.627-.629V8.108c0-.345.282-.63.627-.63.349 0 .631.285.631.63v4.771zm-2.466.629H4.917c-.345 0-.63-.285-.63-.629V8.108c0-.345.285-.63.63-.63.348 0 .63.285.63.63v4.141h1.756c.348 0 .629.283.629.63 0 .344-.281.629-.629.629M24 10.314C24 4.943 18.615.572 12 .572S0 4.943 0 10.314c0 4.811 4.27 8.842 10.035 9.608.391.082.923.258 1.058.59.12.301.079.766.038 1.08l-.164 1.02c-.045.301-.24 1.186 1.049.645 1.291-.539 6.916-4.078 9.436-6.975C23.176 14.393 24 12.458 24 10.314"/></svg>
+        LINEで公開情報を受け取る
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- 08 現在、準備中です -->
+<section style="background:var(--bg-main);">
+  <div class="container fade-in">
+    <div class="center">
+      <span class="label-en">Preparation Status</span>
+      <h2>現在、準備中です</h2>
+      <div class="coming-lead">
+        <p>現在、親子海外トライアルは公開に向けて準備中です。</p>
+        <p>価格・日程・渡航先・滞在先・現地での過ごし方などは現在調整中です。まだ正式募集は開始していません。</p>
+        <p>内容が整い次第、LINEで公開情報をお届けします。初期モニター募集を行う場合は、LINE登録者の方へ先行してご案内する予定です。</p>
+      </div>
+    </div>
+    <div class="status-grid">
+      <div class="status-card">
+        <div class="status-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M22 2L11 13M22 2l-7 20-4-9-9-4z"/>
+          </svg>
+        </div>
+        <span class="status-en">Destination</span>
+        <span class="status-ja">渡航先</span>
+        <span class="status-badge">選定中</span>
+      </div>
+      <div class="status-card">
+        <div class="status-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="3" y="4" width="18" height="18" rx="2"/>
+            <path d="M16 2v4M8 2v4M3 10h18"/>
+            <path d="M8 15h.01M12 15h.01M16 15h.01"/>
+          </svg>
+        </div>
+        <span class="status-en">Duration</span>
+        <span class="status-ja">滞在日数</span>
+        <span class="status-badge">調整中</span>
+      </div>
+      <div class="status-card">
+        <div class="status-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M3 12l9-9 9 9"/>
+            <path d="M5 10v9a1 1 0 001 1h4v-5h4v5h4a1 1 0 001-1v-9"/>
+          </svg>
+        </div>
+        <span class="status-en">Accommodation</span>
+        <span class="status-ja">滞在先</span>
+        <span class="status-badge">調整中</span>
+      </div>
+      <div class="status-card">
+        <div class="status-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="9"/>
+            <path d="M16.24 7.76l-2.12 6.36-6.36 2.12 2.12-6.36 6.36-2.12z"/>
+          </svg>
+        </div>
+        <span class="status-en">Activities</span>
+        <span class="status-ja">現地での過ごし方</span>
+        <span class="status-badge">設計中</span>
+      </div>
+      <div class="status-card">
+        <div class="status-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="9"/>
+            <path d="M12 7v10M9 10h6M9 14h6"/>
+          </svg>
+        </div>
+        <span class="status-en">Price</span>
+        <span class="status-ja">価格</span>
+        <span class="status-badge">調整中</span>
+      </div>
+    </div>
+    <div class="cta-block" style="margin-top:48px;">
+      <p class="cta-microcopy">
+        ＼強引な勧誘や売り込みはありません／<br>
+        内容が整い次第、LINEで公開情報をお届けします。<br>
+        初期モニター募集を行う場合も、LINE登録者の方へ先行してご案内します。
+      </p>
+      <a href="#line-section" class="btn-line">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M19.365 9.863c.349 0 .63.285.63.631 0 .345-.281.63-.63.63H17.61v1.125h1.755c.349 0 .63.283.63.63 0 .344-.281.629-.63.629h-2.386c-.345 0-.627-.285-.627-.629V8.108c0-.345.282-.63.627-.63h2.386c.349 0 .63.285.63.63 0 .349-.281.63-.63.63H17.61v1.125h1.755zm-3.855 3.016c0 .27-.174.51-.432.596-.064.021-.133.031-.199.031-.211 0-.391-.09-.51-.25l-2.443-3.317v2.94c0 .344-.279.629-.631.629-.346 0-.626-.285-.626-.629V8.108c0-.27.173-.51.43-.595.06-.023.136-.033.194-.033.195 0 .375.104.495.254l2.462 3.33V8.108c0-.345.282-.63.63-.63.345 0 .63.285.63.63v4.771zm-5.741 0c0 .344-.282.629-.631.629-.345 0-.627-.285-.627-.629V8.108c0-.345.282-.63.627-.63.349 0 .631.285.631.63v4.771zm-2.466.629H4.917c-.345 0-.63-.285-.63-.629V8.108c0-.345.285-.63.63-.63.348 0 .63.285.63.63v4.141h1.756c.348 0 .629.283.629.63 0 .344-.281.629-.629.629M24 10.314C24 4.943 18.615.572 12 .572S0 4.943 0 10.314c0 4.811 4.27 8.842 10.035 9.608.391.082.923.258 1.058.59.12.301.079.766.038 1.08l-.164 1.02c-.045.301-.24 1.186 1.049.645 1.291-.539 6.916-4.078 9.436-6.975C23.176 14.393 24 12.458 24 10.314"/></svg>
+        LINEで公開情報を受け取る
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- 09 FAQ -->
+<section style="background:var(--bg-sub);">
+  <div class="container fade-in">
+    <span class="label-en">FAQ</span>
+    <h2>よくある質問</h2>
+    <div class="accordion">
+
+      <div class="accordion-item">
+        <button class="accordion-toggle">もう申し込めますか？<span class="acc-icon">+</span></button>
+        <div class="accordion-body"><div class="accordion-body-inner">
+          <p>まだ正式募集は開始していません。現在は公開準備中で、LINEでは公開情報や準備状況を順次ご案内する段階です。</p>
+        </div></div>
+      </div>
+
+      <div class="accordion-item">
+        <button class="accordion-toggle">対象年齢は？<span class="acc-icon">+</span></button>
+        <div class="accordion-body"><div class="accordion-body-inner">
+          <p>主な対象は、小学生のお子さまと保護者です。未就学児・中学生のご家庭についても、今後のご案内対象に含める可能性があります。</p>
+        </div></div>
+      </div>
+
+      <div class="accordion-item">
+        <button class="accordion-toggle">英語力は必要ですか？<span class="acc-icon">+</span></button>
+        <div class="accordion-body"><div class="accordion-body-inner">
+          <p>語学習得を主目的とするものではないため、英語力の有無だけで判断する企画ではありません。内容が整い次第、対象や参加条件についてもLINEでご案内します。</p>
+        </div></div>
+      </div>
+
+      <div class="accordion-item">
+        <button class="accordion-toggle">行き先や日程は決まっていますか？<span class="acc-icon">+</span></button>
+        <div class="accordion-body"><div class="accordion-body-inner">
+          <p>現在調整中です。日程・価格・渡航先などの内容が整い次第、LINEで公開情報をお届けします。</p>
+        </div></div>
+      </div>
+
+      <div class="accordion-item">
+        <button class="accordion-toggle">LINEでは何が届きますか？<span class="acc-icon">+</span></button>
+        <div class="accordion-body"><div class="accordion-body-inner">
+          <p>親子海外トライアルの公開準備状況、募集開始のお知らせ、設計中の考え方、対象になりそうなご家庭の目安、事前アンケート、初期モニター募集を行う場合の先行案内などをお届けする予定です。</p>
+        </div></div>
+      </div>
+
+      <div class="accordion-item">
+        <button class="accordion-toggle">普通の親子留学と何が違いますか？<span class="acc-icon">+</span></button>
+        <div class="accordion-body"><div class="accordion-body-inner">
+          <p>語学や観光を主な目的にするのではなく、親子で海外という選択肢をどう考えるか、その材料を持ち帰ることを大切にしています。</p>
+        </div></div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- 10 CLOSING -->
+<section class="closing-sec">
+  <div class="closing-bg"></div>
+  <div class="closing-overlay"></div>
+  <div class="closing-content fade-in">
+    <span class="label-en" style="color:rgba(255,255,255,0.55);margin-bottom:20px;">公開準備中</span>
+    <h2 class="closing-title">海外を決めるためではなく、<br>まだ決めないために、まず試す。</h2>
+    <p class="closing-sub">
+      この子に海外という選択肢を考えてよいのか。<br>
+      その問いを、家族で話せる材料を持ち帰るために。
+    </p>
+    <p class="cta-microcopy cta-microcopy--light" style="margin-bottom:20px;">
+      ＼強引な勧誘や売り込みはありません／<br>
+      内容が整い次第、LINEで公開情報をお届けします。
+    </p>
+    <a href="#" class="btn-line">
+      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M19.365 9.863c.349 0 .63.285.63.631 0 .345-.281.63-.63.63H17.61v1.125h1.755c.349 0 .63.283.63.63 0 .344-.281.629-.63.629h-2.386c-.345 0-.627-.285-.627-.629V8.108c0-.345.282-.63.627-.63h2.386c.349 0 .63.285.63.63 0 .349-.281.63-.63.63H17.61v1.125h1.755zm-3.855 3.016c0 .27-.174.51-.432.596-.064.021-.133.031-.199.031-.211 0-.391-.09-.51-.25l-2.443-3.317v2.94c0 .344-.279.629-.631.629-.346 0-.626-.285-.626-.629V8.108c0-.27.173-.51.43-.595.06-.023.136-.033.194-.033.195 0 .375.104.495.254l2.462 3.33V8.108c0-.345.282-.63.63-.63.345 0 .63.285.63.63v4.771zm-5.741 0c0 .344-.282.629-.631.629-.345 0-.627-.285-.627-.629V8.108c0-.345.282-.63.627-.63.349 0 .631.285.631.63v4.771zm-2.466.629H4.917c-.345 0-.63-.285-.63-.629V8.108c0-.345.285-.63.63-.63.348 0 .63.285.63.63v4.141h1.756c.348 0 .629.283.629.63 0 .344-.281.629-.629.629M24 10.314C24 4.943 18.615.572 12 .572S0 4.943 0 10.314c0 4.811 4.27 8.842 10.035 9.608.391.082.923.258 1.058.59.12.301.079.766.038 1.08l-.164 1.02c-.045.301-.24 1.186 1.049.645 1.291-.539 6.916-4.078 9.436-6.975C23.176 14.393 24 12.458 24 10.314"/></svg>
+      LINEで公開情報を受け取る
+    </a>
+    <p style="font-size:11px;color:rgba(255,255,255,0.5);margin-top:16px;">親子海外トライアル｜陽だまりラボ</p>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-title">陽だまりラボ</div>
+    <span class="footer-en">Hidamari Lab</span>
+    <div class="footer-links">
+      <a href="#">プライバシーポリシー</a>
+      <a href="#">特定商取引法に基づく表記</a>
+      <a href="#">お問い合わせ</a>
+    </div>
+    <p class="footer-copy">© 2026 陽だまりラボ. All Rights Reserved.</p>
+  </div>
+</footer>
+
+<script>
+  // Fade-in on scroll
+  const io = new IntersectionObserver(
+    entries => entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); }),
+    { threshold: 0.08 }
+  );
+  document.querySelectorAll('.fade-in').forEach(el => io.observe(el));
+
+  // Accordion
+  document.querySelectorAll('.accordion-item').forEach(item => {
+    item.querySelector('.accordion-toggle').addEventListener('click', () => {
+      const isOpen = item.classList.contains('open');
+      document.querySelectorAll('.accordion-item').forEach(i => {
+        i.classList.remove('open');
+        i.querySelector('.accordion-body').style.maxHeight = null;
+      });
+      if (!isOpen) {
+        item.classList.add('open');
+        const body = item.querySelector('.accordion-body');
+        body.style.maxHeight = body.scrollHeight + 'px';
+      }
+    });
+  });
+</script>
+</body>
+</html>
