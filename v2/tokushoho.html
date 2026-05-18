@@ -1,0 +1,445 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>特定商取引法に基づく表記｜陽だまりラボ</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=Noto+Sans+JP:wght@300;400;500&family=Noto+Serif+JP:wght@300;400;500&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --c-bg:        #F7F5F0;
+      --c-ivory:     #F0EDE6;
+      --c-sand:      #E6E1D8;
+      --c-charcoal:  #1F2A37;
+      --c-forest:    #31475E;
+      --c-forest-dk: #253749;
+      --c-forest-lt: #EBF0F5;
+      --c-text:      #2E3440;
+      --c-sub:       #5A6B7A;
+      --c-hint:      #8A9BA8;
+      --c-border:    #D9D4CC;
+      --c-white:     #FFFFFF;
+      --ff-serif:    'Noto Serif JP','Yu Mincho','游明朝',Georgia,serif;
+      --ff-sans:     'Noto Sans JP',sans-serif;
+      --ff-en:       'Cormorant Garamond',Georgia,serif;
+      --r-sm:        6px;
+      --r-md:        10px;
+      --r-lg:        16px;
+      --sh-sm:       0 2px 14px rgba(0,0,0,0.042);
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: var(--ff-sans);
+      font-weight: 300;
+      color: var(--c-text);
+      background: var(--c-bg);
+      line-height: 2.0;
+      -webkit-font-smoothing: antialiased;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+    a { color: inherit; text-decoration: none; }
+
+    /* ── HEADER ── */
+    .page-header {
+      background: var(--c-charcoal);
+      padding: 0 44px;
+    }
+    .page-header-inner {
+      max-width: 1060px;
+      margin: 0 auto;
+      height: 64px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+    }
+    .header-brand {
+      display: flex;
+      align-items: baseline;
+      gap: 10px;
+    }
+    .header-brand-jp {
+      font-family: var(--ff-serif);
+      font-size: 14px;
+      font-weight: 400;
+      color: rgba(255,255,255,0.9);
+      letter-spacing: 0.06em;
+    }
+    .header-brand-sep {
+      color: rgba(255,255,255,0.28);
+      font-size: 11px;
+    }
+    .header-brand-sub {
+      font-family: var(--ff-sans);
+      font-size: 12px;
+      font-weight: 300;
+      color: rgba(255,255,255,0.48);
+      letter-spacing: 0.04em;
+    }
+    .header-back {
+      font-size: 12px;
+      font-weight: 300;
+      color: rgba(255,255,255,0.48);
+      letter-spacing: 0.04em;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      transition: color 0.2s;
+      white-space: nowrap;
+    }
+    .header-back:hover { color: rgba(255,255,255,0.82); }
+    .header-back svg { flex-shrink: 0; }
+
+    /* ── MAIN ── */
+    main { flex: 1; padding: 72px 44px 96px; }
+    .content-wrap {
+      max-width: 760px;
+      margin: 0 auto;
+    }
+
+    /* ── PAGE TITLE ── */
+    .page-title-block {
+      margin-bottom: 48px;
+      padding-bottom: 28px;
+      border-bottom: 1px solid var(--c-border);
+    }
+    .page-en-label {
+      display: block;
+      font-family: var(--ff-en);
+      font-weight: 300;
+      font-size: 10px;
+      letter-spacing: 0.26em;
+      text-transform: uppercase;
+      color: var(--c-hint);
+      margin-bottom: 10px;
+    }
+    .page-title {
+      font-family: var(--ff-serif);
+      font-size: clamp(18px, 3.5vw, 24px);
+      font-weight: 400;
+      color: var(--c-charcoal);
+      letter-spacing: 0.04em;
+      line-height: 1.5;
+    }
+
+    /* ── NOTICE BANNER ── */
+    .notice-banner {
+      background: var(--c-ivory);
+      border: 1px solid var(--c-border);
+      border-left: 3px solid var(--c-forest);
+      border-radius: var(--r-md);
+      padding: 20px 24px;
+      margin-bottom: 36px;
+    }
+    .notice-banner p {
+      font-size: 14px;
+      color: var(--c-sub);
+      line-height: 2.0;
+    }
+
+    /* ── TABLE CARD ── */
+    .policy-card {
+      background: var(--c-white);
+      border: 1px solid var(--c-border);
+      border-radius: var(--r-lg);
+      overflow: hidden;
+      box-shadow: var(--sh-sm);
+    }
+
+    /* ── TABLE ── */
+    .toku-table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+    .toku-table tr {
+      border-bottom: 1px solid var(--c-sand);
+    }
+    .toku-table tr:last-child {
+      border-bottom: none;
+    }
+    .toku-table th {
+      width: 32%;
+      padding: 18px 24px;
+      background: var(--c-forest);
+      color: rgba(255,255,255,0.88);
+      font-family: var(--ff-serif);
+      font-size: 13.5px;
+      font-weight: 400;
+      letter-spacing: 0.04em;
+      vertical-align: top;
+      line-height: 1.8;
+      text-align: left;
+    }
+    .toku-table td {
+      padding: 18px 24px;
+      background: var(--c-white);
+      font-size: 13.5px;
+      color: var(--c-sub);
+      line-height: 2.0;
+      vertical-align: top;
+    }
+    .toku-table tr:nth-child(even) td {
+      background: var(--c-ivory);
+    }
+    .toku-note {
+      font-size: 12px;
+      color: var(--c-hint);
+      margin-top: 4px;
+      line-height: 1.8;
+    }
+
+    /* ── BACK LINK ── */
+    .back-link-wrap {
+      margin-top: 40px;
+      text-align: center;
+    }
+    .back-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 13px;
+      font-weight: 400;
+      color: var(--c-forest);
+      border: 1px solid var(--c-forest);
+      padding: 10px 28px;
+      border-radius: 100px;
+      letter-spacing: 0.04em;
+      transition: background 0.2s, color 0.2s;
+    }
+    .back-link:hover {
+      background: var(--c-forest);
+      color: var(--c-white);
+    }
+
+    /* ── FOOTER ── */
+    footer {
+      background: var(--c-charcoal);
+      color: #fff;
+      padding: 52px 44px;
+      text-align: center;
+    }
+    .footer-inner { max-width: 1060px; margin: 0 auto; }
+    .footer-name {
+      font-family: var(--ff-serif);
+      font-size: 15px;
+      font-weight: 400;
+      letter-spacing: 0.04em;
+    }
+    .footer-en {
+      font-family: var(--ff-en);
+      font-size: 10px;
+      letter-spacing: 0.2em;
+      color: rgba(255,255,255,0.38);
+      text-transform: uppercase;
+      margin-top: 4px;
+      margin-bottom: 28px;
+    }
+    .footer-links {
+      display: flex;
+      justify-content: center;
+      gap: 28px;
+      margin-bottom: 28px;
+      flex-wrap: wrap;
+    }
+    .footer-links a {
+      color: rgba(255,255,255,0.42);
+      font-size: 12.5px;
+      letter-spacing: 0.02em;
+      transition: color 0.2s;
+    }
+    .footer-links a:hover { color: rgba(255,255,255,0.78); }
+    .footer-copy { font-size: 11.5px; color: rgba(255,255,255,0.22); }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 768px) {
+      .page-header { padding: 0 20px; }
+      main { padding: 48px 20px 72px; }
+      footer { padding: 40px 20px; }
+      .footer-links { gap: 18px; }
+
+      /* テーブルをカード形式に変換 */
+      .toku-table,
+      .toku-table tbody,
+      .toku-table tr {
+        display: block;
+      }
+      .toku-table tr {
+        border-bottom: 1px solid var(--c-sand);
+      }
+      .toku-table tr:last-child { border-bottom: none; }
+      .toku-table th,
+      .toku-table td {
+        display: block;
+        width: 100%;
+        padding: 12px 20px;
+      }
+      .toku-table th {
+        font-size: 12px;
+        padding-bottom: 6px;
+        border-bottom: none;
+        background: var(--c-forest);
+      }
+      .toku-table td {
+        padding-top: 8px;
+        padding-bottom: 16px;
+        background: var(--c-white) !important;
+        border-top: none;
+      }
+    }
+    @media (max-width: 480px) {
+      .header-brand-sub { display: none; }
+      .header-brand-sep { display: none; }
+      .footer-links {
+        flex-direction: column;
+        gap: 12px;
+        align-items: center;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header class="page-header">
+  <div class="page-header-inner">
+    <div class="header-brand">
+      <span class="header-brand-jp">陽だまりラボ</span>
+      <span class="header-brand-sep">/</span>
+      <span class="header-brand-sub">親子海外トライアル</span>
+    </div>
+    <a href="index.html" class="header-back">
+      <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true">
+        <path d="M9 2L4 7L9 12" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+      トップページへ
+    </a>
+  </div>
+</header>
+
+<!-- MAIN -->
+<main>
+  <div class="content-wrap">
+
+    <div class="page-title-block">
+      <span class="page-en-label">Specified Commercial Transactions Act</span>
+      <h1 class="page-title">特定商取引法に基づく表記</h1>
+    </div>
+
+    <div class="notice-banner">
+      <p>現在、親子海外トライアルは初回モニター募集に向けて準備中です。<br>
+      現時点では、本サイト上での決済および有料申込の受付は行っておりません。<br>
+      正式な有料サービス提供開始時には、販売価格、支払方法、キャンセル条件、サービス提供内容等を、本ページまたは申込ページにて明示します。</p>
+    </div>
+
+    <p style="font-size:13px;color:var(--c-hint);margin-bottom:20px;letter-spacing:0.02em;">以下は現時点での予定情報です。</p>
+
+    <div class="policy-card">
+      <table class="toku-table">
+        <tbody>
+          <tr>
+            <th>事業者名</th>
+            <td>陽だまりラボ</td>
+          </tr>
+          <tr>
+            <th>運営責任者</th>
+            <td>
+              ※正式公開時に記載
+            </td>
+          </tr>
+          <tr>
+            <th>所在地</th>
+            <td>
+              ※正式公開時に記載
+            </td>
+          </tr>
+          <tr>
+            <th>お問い合わせ先</th>
+            <td>
+              公式LINEまたはお問い合わせフォームより受け付けております。<br>
+              <span class="toku-note">※メールアドレス等は正式公開時に記載予定です。</span>
+            </td>
+          </tr>
+          <tr>
+            <th>サービス名</th>
+            <td>親子海外トライアル</td>
+          </tr>
+          <tr>
+            <th>販売価格・対価</th>
+            <td>
+              現在、初回モニタープランの準備中です。滞在日数、滞在先、現地での過ごし方、サポート範囲により費用が変動するため、正式リリース時に確定した価格を掲載いたします。
+            </td>
+          </tr>
+          <tr>
+            <th>商品代金以外の必要料金</th>
+            <td>
+              航空券、海外旅行保険、パスポート取得費、現地交通費、食費、個人的な支出、その他個別に必要となる費用が発生する場合があります。詳細は正式案内時に明示します。
+            </td>
+          </tr>
+          <tr>
+            <th>代金の支払時期・方法</th>
+            <td>
+              正式募集時にご案内します。現時点での決済は発生しません。
+            </td>
+          </tr>
+          <tr>
+            <th>サービス提供時期</th>
+            <td>
+              正式募集時にご案内する日程に基づきます。
+            </td>
+          </tr>
+          <tr>
+            <th>キャンセル・返金について</th>
+            <td>
+              キャンセル規定、返金条件については、正式募集時に明示します。航空券、宿泊、現地手配等のキャンセル規定は、各手配先の規定に準じる場合があります。
+            </td>
+          </tr>
+          <tr>
+            <th>サービス内容</th>
+            <td>
+              親子で海外の環境を短く試し、この子に合う環境や親子の関わり方を考えるための短期海外トライアルです。診断、治療、カウンセリング、進学先の保証、英語力向上の保証を行うものではありません。
+            </td>
+          </tr>
+          <tr>
+            <th>表現およびサービスに関する注意事項</th>
+            <td>
+              本サービスは、海外移住、留学成果、英語力向上、子どもの変化等を保証するものではありません。体験内容やサポート範囲は、渡航先、日程、現地状況、ご家庭の希望により異なります。
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="back-link-wrap">
+      <a href="index.html" class="back-link">
+        <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true">
+          <path d="M9 2L4 7L9 12" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+        トップページへ戻る
+      </a>
+    </div>
+
+  </div>
+</main>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <p class="footer-name">陽だまりラボ <span style="font-family:var(--ff-en);font-weight:300;font-size:12px;letter-spacing:0.14em;opacity:0.55;">/ Hidamari Lab</span></p>
+    <p class="footer-en">Oyako Kaigai Trial</p>
+    <div class="footer-links">
+      <a href="privacy.html">プライバシーポリシー</a>
+      <a href="tokushoho.html">特定商取引法に基づく表記</a>
+      <a href="#">お問い合わせ</a>
+    </div>
+    <p class="footer-copy">© 2026 陽だまりラボ. All Rights Reserved.</p>
+  </div>
+</footer>
+
+</body>
+</html>

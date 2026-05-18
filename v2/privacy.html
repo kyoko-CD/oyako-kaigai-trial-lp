@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>プライバシーポリシー｜陽だまりラボ</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=Noto+Sans+JP:wght@300;400;500&family=Noto+Serif+JP:wght@300;400;500&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --c-bg:        #F7F5F0;
+      --c-ivory:     #F0EDE6;
+      --c-sand:      #E6E1D8;
+      --c-charcoal:  #1F2A37;
+      --c-forest:    #31475E;
+      --c-forest-dk: #253749;
+      --c-forest-lt: #EBF0F5;
+      --c-text:      #2E3440;
+      --c-sub:       #5A6B7A;
+      --c-hint:      #8A9BA8;
+      --c-border:    #D9D4CC;
+      --c-white:     #FFFFFF;
+      --ff-serif:    'Noto Serif JP','Yu Mincho','游明朝',Georgia,serif;
+      --ff-sans:     'Noto Sans JP',sans-serif;
+      --ff-en:       'Cormorant Garamond',Georgia,serif;
+      --r-sm:        6px;
+      --r-md:        10px;
+      --r-lg:        16px;
+      --sh-sm:       0 2px 14px rgba(0,0,0,0.042);
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: var(--ff-sans);
+      font-weight: 300;
+      color: var(--c-text);
+      background: var(--c-bg);
+      line-height: 2.0;
+      -webkit-font-smoothing: antialiased;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+    a { color: inherit; text-decoration: none; }
+
+    /* ── HEADER ── */
+    .page-header {
+      background: var(--c-charcoal);
+      padding: 0 44px;
+    }
+    .page-header-inner {
+      max-width: 1060px;
+      margin: 0 auto;
+      height: 64px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+    }
+    .header-brand {
+      display: flex;
+      align-items: baseline;
+      gap: 10px;
+    }
+    .header-brand-jp {
+      font-family: var(--ff-serif);
+      font-size: 14px;
+      font-weight: 400;
+      color: rgba(255,255,255,0.9);
+      letter-spacing: 0.06em;
+    }
+    .header-brand-sep {
+      color: rgba(255,255,255,0.28);
+      font-size: 11px;
+    }
+    .header-brand-sub {
+      font-family: var(--ff-sans);
+      font-size: 12px;
+      font-weight: 300;
+      color: rgba(255,255,255,0.48);
+      letter-spacing: 0.04em;
+    }
+    .header-back {
+      font-size: 12px;
+      font-weight: 300;
+      color: rgba(255,255,255,0.48);
+      letter-spacing: 0.04em;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      transition: color 0.2s;
+      white-space: nowrap;
+    }
+    .header-back:hover { color: rgba(255,255,255,0.82); }
+    .header-back svg { flex-shrink: 0; }
+
+    /* ── MAIN ── */
+    main { flex: 1; padding: 72px 44px 96px; }
+    .content-wrap {
+      max-width: 760px;
+      margin: 0 auto;
+    }
+
+    /* ── PAGE TITLE ── */
+    .page-title-block {
+      margin-bottom: 48px;
+      padding-bottom: 28px;
+      border-bottom: 1px solid var(--c-border);
+    }
+    .page-en-label {
+      display: block;
+      font-family: var(--ff-en);
+      font-weight: 300;
+      font-size: 10px;
+      letter-spacing: 0.26em;
+      text-transform: uppercase;
+      color: var(--c-hint);
+      margin-bottom: 10px;
+    }
+    .page-title {
+      font-family: var(--ff-serif);
+      font-size: clamp(22px, 4vw, 28px);
+      font-weight: 400;
+      color: var(--c-charcoal);
+      letter-spacing: 0.04em;
+      line-height: 1.5;
+    }
+
+    /* ── CARD ── */
+    .policy-card {
+      background: var(--c-white);
+      border: 1px solid var(--c-border);
+      border-radius: var(--r-lg);
+      padding: clamp(28px, 6vw, 52px);
+      box-shadow: var(--sh-sm);
+    }
+
+    /* ── SECTIONS ── */
+    .policy-section {
+      margin-bottom: 36px;
+    }
+    .policy-section:last-child { margin-bottom: 0; }
+
+    .policy-section h2 {
+      font-family: var(--ff-serif);
+      font-size: 15px;
+      font-weight: 400;
+      color: var(--c-forest);
+      letter-spacing: 0.04em;
+      margin-bottom: 12px;
+      padding-bottom: 8px;
+      border-bottom: 1px solid var(--c-sand);
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .policy-section h2::before {
+      content: '';
+      display: inline-block;
+      width: 3px;
+      height: 14px;
+      background: var(--c-forest);
+      border-radius: 2px;
+      flex-shrink: 0;
+    }
+
+    .policy-intro {
+      font-size: 14px;
+      color: var(--c-sub);
+      line-height: 2.1;
+      margin-bottom: 32px;
+      padding: 20px 24px;
+      background: var(--c-ivory);
+      border-radius: var(--r-md);
+      border-left: 3px solid var(--c-forest);
+    }
+
+    .policy-section p {
+      font-size: 14px;
+      color: var(--c-sub);
+      line-height: 2.1;
+    }
+    .policy-section ul {
+      margin-top: 10px;
+      padding-left: 0;
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+    .policy-section ul li {
+      font-size: 14px;
+      color: var(--c-sub);
+      line-height: 1.9;
+      padding-left: 18px;
+      position: relative;
+    }
+    .policy-section ul li::before {
+      content: '・';
+      position: absolute;
+      left: 0;
+      color: var(--c-forest);
+    }
+
+    /* ── BACK LINK ── */
+    .back-link-wrap {
+      margin-top: 40px;
+      text-align: center;
+    }
+    .back-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 13px;
+      font-weight: 400;
+      color: var(--c-forest);
+      border: 1px solid var(--c-forest);
+      padding: 10px 28px;
+      border-radius: 100px;
+      letter-spacing: 0.04em;
+      transition: background 0.2s, color 0.2s;
+    }
+    .back-link:hover {
+      background: var(--c-forest);
+      color: var(--c-white);
+    }
+
+    /* ── FOOTER ── */
+    footer {
+      background: var(--c-charcoal);
+      color: #fff;
+      padding: 52px 44px;
+      text-align: center;
+    }
+    .footer-inner { max-width: 1060px; margin: 0 auto; }
+    .footer-name {
+      font-family: var(--ff-serif);
+      font-size: 15px;
+      font-weight: 400;
+      letter-spacing: 0.04em;
+    }
+    .footer-en {
+      font-family: var(--ff-en);
+      font-size: 10px;
+      letter-spacing: 0.2em;
+      color: rgba(255,255,255,0.38);
+      text-transform: uppercase;
+      margin-top: 4px;
+      margin-bottom: 28px;
+    }
+    .footer-links {
+      display: flex;
+      justify-content: center;
+      gap: 28px;
+      margin-bottom: 28px;
+      flex-wrap: wrap;
+    }
+    .footer-links a {
+      color: rgba(255,255,255,0.42);
+      font-size: 12.5px;
+      letter-spacing: 0.02em;
+      transition: color 0.2s;
+    }
+    .footer-links a:hover { color: rgba(255,255,255,0.78); }
+    .footer-copy { font-size: 11.5px; color: rgba(255,255,255,0.22); }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 768px) {
+      .page-header { padding: 0 20px; }
+      main { padding: 48px 20px 72px; }
+      footer { padding: 40px 20px; }
+      .footer-links { gap: 18px; }
+      .policy-card { padding: 24px 20px; }
+    }
+    @media (max-width: 480px) {
+      .header-brand-sub { display: none; }
+      .header-brand-sep { display: none; }
+      .footer-links {
+        flex-direction: column;
+        gap: 12px;
+        align-items: center;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header class="page-header">
+  <div class="page-header-inner">
+    <div class="header-brand">
+      <span class="header-brand-jp">陽だまりラボ</span>
+      <span class="header-brand-sep">/</span>
+      <span class="header-brand-sub">親子海外トライアル</span>
+    </div>
+    <a href="index.html" class="header-back">
+      <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true">
+        <path d="M9 2L4 7L9 12" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+      トップページへ
+    </a>
+  </div>
+</header>
+
+<!-- MAIN -->
+<main>
+  <div class="content-wrap">
+
+    <div class="page-title-block">
+      <span class="page-en-label">Privacy Policy</span>
+      <h1 class="page-title">プライバシーポリシー</h1>
+    </div>
+
+    <div class="policy-card">
+
+      <p class="policy-intro">
+        陽だまりラボ（以下「当サービス」といいます）は、親子海外トライアルに関する情報提供、お問い合わせ対応、初回モニター募集のご案内等において取得する個人情報について、以下のとおり取り扱います。
+      </p>
+
+      <div class="policy-section">
+        <h2>1. 取得する情報</h2>
+        <p>当サービスでは、公式LINE登録、お問い合わせ、資料請求、個別相談、モニター募集に関するご連絡等に際し、氏名、メールアドレス、LINEアカウント情報、お問い合わせ内容、参加希望内容、その他ご本人から提供いただく情報を取得する場合があります。</p>
+      </div>
+
+      <div class="policy-section">
+        <h2>2. 利用目的</h2>
+        <p>取得した個人情報は、以下の目的で利用します。</p>
+        <ul>
+          <li>親子海外トライアルに関する情報提供</li>
+          <li>初回モニター募集、日程、費用、参加条件等のご案内</li>
+          <li>お問い合わせへの回答</li>
+          <li>個別相談、事前確認、参加希望内容の確認</li>
+          <li>サービス内容の改善、品質向上</li>
+          <li>必要に応じた重要なお知らせの送付</li>
+        </ul>
+      </div>
+
+      <div class="policy-section">
+        <h2>3. 第三者提供</h2>
+        <p>取得した個人情報は、法令に基づく場合を除き、ご本人の同意なく第三者に提供しません。ただし、サービス提供に必要な範囲で、業務委託先、現地提携先、語学学校、宿泊・移動・体験手配に関わる関係者等に必要最小限の情報を共有する場合があります。</p>
+      </div>
+
+      <div class="policy-section">
+        <h2>4. 安全管理</h2>
+        <p>取得した個人情報について、漏えい、紛失、改ざん、不正アクセス等を防止するため、適切な管理に努めます。</p>
+      </div>
+
+      <div class="policy-section">
+        <h2>5. 開示・訂正・削除等</h2>
+        <p>ご本人から個人情報の開示、訂正、利用停止、削除等のご希望があった場合は、法令に従い、適切に対応します。</p>
+      </div>
+
+      <div class="policy-section">
+        <h2>6. Cookie等の利用</h2>
+        <p>当サイトでは、アクセス解析やサイト改善のためにCookie等を利用する場合があります。Cookieにより個人を特定する情報を取得するものではありません。</p>
+      </div>
+
+      <div class="policy-section">
+        <h2>7. プライバシーポリシーの変更</h2>
+        <p>本ポリシーは、法令の変更やサービス内容の変更に応じて、予告なく改定する場合があります。</p>
+      </div>
+
+      <div class="policy-section">
+        <h2>8. お問い合わせ</h2>
+        <p>本ポリシーに関するお問い合わせは、フッターのお問い合わせリンク、公式LINE、または当サービスが指定する方法よりご連絡ください。</p>
+      </div>
+
+    </div>
+
+    <div class="back-link-wrap">
+      <a href="index.html" class="back-link">
+        <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true">
+          <path d="M9 2L4 7L9 12" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+        トップページへ戻る
+      </a>
+    </div>
+
+  </div>
+</main>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <p class="footer-name">陽だまりラボ <span style="font-family:var(--ff-en);font-weight:300;font-size:12px;letter-spacing:0.14em;opacity:0.55;">/ Hidamari Lab</span></p>
+    <p class="footer-en">Oyako Kaigai Trial</p>
+    <div class="footer-links">
+      <a href="privacy.html">プライバシーポリシー</a>
+      <a href="tokushoho.html">特定商取引法に基づく表記</a>
+      <a href="#">お問い合わせ</a>
+    </div>
+    <p class="footer-copy">© 2026 陽だまりラボ. All Rights Reserved.</p>
+  </div>
+</footer>
+
+</body>
+</html>
