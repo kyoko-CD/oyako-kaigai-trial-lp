@@ -1,0 +1,2116 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>親子海外トライアル｜陽だまりラボ</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=Noto+Sans+JP:wght@300;400;500&family=Noto+Serif+JP:wght@300;400;500&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --c-bg:        #F7F5F0;
+      --c-ivory:     #F0EDE6;
+      --c-sand:      #E6E1D8;
+      --c-greige:    #D0CBBF;
+      --c-charcoal:  #1F2A37;
+      --c-forest:    #31475E;
+      --c-forest-dk: #253749;
+      --c-forest-lt: #EBF0F5;
+      --c-text:      #2E3440;
+      --c-sub:       #5A6B7A;
+      --c-hint:      #8A9BA8;
+      --c-border:    #D9D4CC;
+      --c-white:     #FDFAF6;
+      --ff-serif:    'Noto Serif JP','Yu Mincho','游明朝',Georgia,serif;
+      --ff-sans:     'Noto Sans JP',sans-serif;
+      --ff-en:       'Cormorant Garamond',Georgia,serif;
+      --r-sm:        6px;
+      --r-md:        10px;
+      --r-lg:        16px;
+      --sh-sm:       0 2px 14px rgba(0,0,0,0.042);
+      --sh-md:       0 4px 28px rgba(0,0,0,0.065);
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: var(--ff-sans);
+      font-weight: 300;
+      color: var(--c-text);
+      background: var(--c-bg);
+      line-height: 2.0;
+      -webkit-font-smoothing: antialiased;
+    }
+    img { display: block; width: 100%; height: auto; }
+    a { color: inherit; text-decoration: none; }
+    button { font-family: inherit; }
+
+    .wrap { max-width: 1060px; margin: 0 auto; padding: 0 44px; }
+    .sec  { padding: 96px 0; }
+    .sec--ivory  { background: var(--c-ivory); }
+    .sec--sand   { background: var(--c-sand); }
+    .sec--white  { background: var(--c-bg); }
+    .sec--cta    { background: var(--c-bg); }
+
+    /* ── TYPE ── */
+    .en-label {
+      display: block;
+      font-family: var(--ff-en);
+      font-weight: 300;
+      font-size: 11px;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--c-hint);
+      margin-bottom: 14px;
+    }
+    .en-label--c { text-align: center; }
+
+    h2 {
+      font-family: var(--ff-serif);
+      font-size: clamp(22px, 3.4vw, 34px);
+      font-weight: 400;
+      line-height: 1.65;
+      letter-spacing: -0.01em;
+      font-feature-settings: "palt";
+      margin-bottom: 24px;
+    }
+    h3 {
+      font-family: var(--ff-serif);
+      font-size: clamp(14px, 1.7vw, 16.5px);
+      font-weight: 400;
+      line-height: 1.75;
+      font-feature-settings: "palt";
+      margin-bottom: 8px;
+    }
+    p {
+      font-size: 15px;
+      color: var(--c-sub);
+      line-height: 2.1;
+      margin-bottom: 18px;
+    }
+    p:last-child { margin-bottom: 0; }
+
+    .sec-rule {
+      width: 30px;
+      height: 1.5px;
+      background: var(--c-forest);
+      opacity: 0.55;
+      margin-bottom: 18px;
+    }
+    .sec-rule--c { margin: 0 auto 18px; }
+
+    /* ── FADE IN ── */
+    .fi {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.7s ease, transform 0.7s ease;
+    }
+    .fi.vis { opacity: 1; transform: translateY(0); }
+    .fi-d1 { transition-delay: 0.08s; }
+    .fi-d2 { transition-delay: 0.16s; }
+    .fi-d3 { transition-delay: 0.25s; }
+    .fi-d4 { transition-delay: 0.34s; }
+    .fi-d5 { transition-delay: 0.43s; }
+
+    /* ── LINE BUTTON ── */
+    .btn-line {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      background: var(--c-forest);
+      color: #fff;
+      padding: 16px 40px;
+      border-radius: 100px;
+      font-family: var(--ff-sans);
+      font-size: 14px;
+      font-weight: 500;
+      letter-spacing: 0.04em;
+      text-decoration: none;
+      cursor: pointer;
+      border: none;
+      transition: background 0.25s, transform 0.25s, box-shadow 0.25s;
+      box-shadow: 0 4px 22px rgba(49,71,94,0.22);
+    }
+    .btn-line:hover {
+      background: var(--c-forest-dk);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 30px rgba(49,71,94,0.3);
+    }
+    .btn-line svg { width: 20px; height: 20px; flex-shrink: 0; }
+    .btn-line--sm { padding: 10px 24px; font-size: 13px; }
+
+    /* ── BADGE ── */
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      font-size: 11px;
+      letter-spacing: 0.06em;
+      color: var(--c-forest);
+      background: var(--c-forest-lt);
+      border: 1px solid rgba(49,71,94,0.18);
+      padding: 5px 14px;
+      border-radius: 100px;
+    }
+    .badge-dot {
+      width: 5px;
+      height: 5px;
+      border-radius: 50%;
+      background: var(--c-forest);
+      animation: pulse 2.2s ease-in-out infinite;
+    }
+    @keyframes pulse {
+      0%,100% { opacity: 1; }
+      50%      { opacity: 0.4; }
+    }
+
+    /* ════════════════════════════════
+       NAV
+    ════════════════════════════════ */
+    .nav {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(250,247,240,0.97);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      border-bottom: 1px solid rgba(49,71,94,0.13);
+      box-shadow: 0 1px 10px rgba(31,42,55,0.055);
+      padding: 14px 44px;
+    }
+    .nav-inner {
+      max-width: 1060px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .nav-brand { display: flex; flex-direction: column; gap: 2px; }
+    .nav-brand-main {
+      font-family: var(--ff-serif);
+      font-size: 14px;
+      font-weight: 400;
+      color: var(--c-forest);
+      letter-spacing: 0.04em;
+    }
+    .nav-brand-sub {
+      font-family: var(--ff-en);
+      font-size: 10px;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--c-hint);
+    }
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 24px;
+    }
+    .nav-links a {
+      font-family: var(--ff-sans);
+      font-size: 13px;
+      font-weight: 300;
+      color: var(--c-sub);
+      letter-spacing: 0.06em;
+      transition: color 0.2s;
+    }
+    .nav-links a:hover {
+      color: var(--c-forest);
+    }
+
+    /* ════════════════════════════════
+       01 HERO
+    ════════════════════════════════ */
+    .hero {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      min-height: calc(100vh - 53px);
+      overflow: hidden;
+    }
+    .hero-text {
+      display: flex;
+      align-items: center;
+      padding: 80px 64px 72px 44px;
+      background: var(--c-ivory);
+    }
+    .hero-text-inner { max-width: 470px; }
+    .hero-service {
+      display: block;
+      font-family: var(--ff-en);
+      font-size: 10.5px;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--c-forest);
+      margin-bottom: 22px;
+    }
+    .hero-h1 {
+      font-family: var(--ff-serif);
+      font-size: clamp(24px, 2.6vw, 42px);
+      font-weight: 400;
+      line-height: 1.55;
+      color: var(--c-text);
+      letter-spacing: -0.02em;
+      font-feature-settings: "palt";
+      margin-bottom: 24px;
+    }
+    .hero-intro {
+      font-family: var(--ff-serif);
+      font-size: 12.5px;
+      font-style: italic;
+      font-weight: 300;
+      color: var(--c-hint);
+      letter-spacing: 0.02em;
+      line-height: 1.8;
+      margin-bottom: 14px;
+    }
+    .hero-lead {
+      font-family: var(--ff-serif);
+      font-size: clamp(14px, 1.35vw, 16px);
+      font-weight: 300;
+      color: var(--c-sub);
+      line-height: 2.0;
+      font-feature-settings: "palt";
+      margin-bottom: 28px;
+    }
+    .hero-badge-wrap { margin-bottom: 30px; }
+    .hero-cta-wrap { margin-bottom: 0; }
+    .hero-cta-note {
+      font-size: 11.5px;
+      color: rgba(90,107,122,0.78);
+      margin-top: 12px;
+      line-height: 1.7;
+    }
+    .hero-byline {
+      font-family: var(--ff-en);
+      font-size: 10px;
+      letter-spacing: 0.17em;
+      text-transform: uppercase;
+      color: var(--c-hint);
+    }
+    .hero-img {
+      position: relative;
+      overflow: hidden;
+    }
+    .hero-img img {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center 35%;
+    }
+    .hero-img::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: rgba(15, 25, 40, 0.18);
+      pointer-events: none;
+    }
+
+    /* ════════════════════════════════
+       01b FOR-WHOM
+    ════════════════════════════════ */
+    .forwhom-head { max-width: 640px; margin-bottom: 44px; }
+    .forwhom-head h2 { margin-bottom: 14px; }
+    .forwhom-lead {
+      font-size: 14px;
+      color: var(--c-sub);
+      line-height: 2.05;
+    }
+    .forwhom-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 12px 24px;
+      margin-bottom: 52px;
+      align-items: stretch;
+    }
+    .forwhom-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      padding: 18px 20px;
+      background: var(--c-white);
+      border: 1px solid rgba(49,71,94,0.17);
+      border-radius: var(--r-md);
+      box-shadow: 0 2px 12px rgba(31,42,55,0.06);
+      transition: border-color 0.2s, box-shadow 0.2s;
+      height: 100%;
+      min-height: 110px;
+      box-sizing: border-box;
+    }
+    .forwhom-item:hover {
+      border-color: rgba(49,71,94,0.26);
+      box-shadow: var(--sh-sm);
+    }
+    .forwhom-check {
+      flex-shrink: 0;
+      width: 17px;
+      height: 17px;
+      border: 1.5px solid var(--c-forest);
+      border-radius: 4px;
+      margin-top: 3px;
+      position: relative;
+      opacity: 0.55;
+    }
+    .forwhom-check::after {
+      content: '';
+      position: absolute;
+      top: 2px;
+      left: 4px;
+      width: 6px;
+      height: 9px;
+      border-right: 1.5px solid var(--c-forest);
+      border-bottom: 1.5px solid var(--c-forest);
+      transform: rotate(45deg);
+    }
+    .forwhom-item p {
+      font-size: 13.5px;
+      color: var(--c-sub);
+      line-height: 1.85;
+      margin: 0;
+    }
+    .forwhom-close {
+      max-width: 560px;
+      text-align: center;
+      margin: 0 auto;
+    }
+    .forwhom-close-text {
+      font-size: 14px;
+      color: var(--c-sub);
+      line-height: 2.05;
+      margin-bottom: 28px;
+    }
+    .forwhom-close-note {
+      display: block;
+      font-size: 12px;
+      color: rgba(90,107,122,0.72);
+      margin-top: 8px;
+    }
+
+    /* ════════════════════════════════
+       02 EMPATHY
+    ════════════════════════════════ */
+    .empathy-head {
+      max-width: 540px;
+      margin: 0 auto 52px;
+      text-align: center;
+    }
+    .empathy-head h2 { margin-bottom: 8px; }
+    .empathy-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+      margin-bottom: 52px;
+    }
+    .empathy-card {
+      background: var(--c-white);
+      border: 1px solid rgba(49,71,94,0.17);
+      border-radius: var(--r-md);
+      padding: 24px 22px;
+      box-shadow: var(--sh-sm);
+      display: flex;
+      align-items: flex-start;
+      gap: 13px;
+      transition: border-color 0.22s, box-shadow 0.22s;
+    }
+    .empathy-card:hover {
+      border-color: rgba(49,71,94,0.28);
+      box-shadow: var(--sh-md);
+    }
+    .empathy-mark {
+      width: 22px;
+      height: 22px;
+      border-radius: 50%;
+      border: 1.5px solid rgba(49,71,94,0.25);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      margin-top: 1px;
+    }
+    .empathy-mark::after {
+      content: '';
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--c-forest);
+      opacity: 0.55;
+    }
+    .empathy-card p { font-size: 14px; line-height: 1.9; color: var(--c-sub); margin: 0; }
+    .empathy-card:last-child { grid-column: 2; }
+    .empathy-close {
+      max-width: 560px;
+      margin: 0 auto;
+      text-align: center;
+      padding-top: 40px;
+      border-top: 1px solid var(--c-border);
+    }
+    .empathy-close p { font-size: 14px; line-height: 2.1; }
+    .empathy-close strong { color: var(--c-text); font-weight: 400; }
+
+    /* ════════════════════════════════
+       03 COMPARISON
+    ════════════════════════════════ */
+    .compare-head { max-width: 620px; margin-bottom: 52px; }
+    .compare-head h2 { margin-bottom: 8px; }
+    .compare-cols {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 22px;
+    }
+    .cmp-card {
+      border-radius: var(--r-lg);
+      padding: 36px 32px;
+      border: 1px solid var(--c-border);
+    }
+    .cmp-card--normal {
+      background: #F3F1ED;
+      border-color: #DDD9D2;
+      box-shadow: none;
+    }
+    .cmp-card--normal .cmp-title { color: var(--c-sub); }
+    .cmp-card--normal .cmp-list li { color: var(--c-hint); }
+    .cmp-card--trial {
+      background: var(--c-white);
+      border-color: rgba(49,71,94,0.18);
+      box-shadow: 0 6px 28px rgba(49,71,94,0.10);
+      position: relative;
+    }
+    .cmp-card--trial::before {
+      content: 'このプログラム';
+      position: absolute;
+      top: -13px;
+      left: 26px;
+      background: var(--c-forest);
+      color: #fff;
+      font-size: 10.5px;
+      letter-spacing: 0.07em;
+      padding: 3px 14px;
+      border-radius: 100px;
+    }
+    .cmp-title {
+      font-family: var(--ff-serif);
+      font-size: 15.5px;
+      font-weight: 400;
+      color: var(--c-text);
+      margin-bottom: 22px;
+      padding-bottom: 16px;
+      border-bottom: 1px solid var(--c-border);
+    }
+    .cmp-card--trial .cmp-title { border-color: rgba(49,71,94,0.18); }
+    .cmp-list { list-style: none; }
+    .cmp-list li {
+      display: flex;
+      align-items: flex-start;
+      gap: 11px;
+      font-size: 14px;
+      color: var(--c-sub);
+      line-height: 1.9;
+      margin-bottom: 13px;
+    }
+    .cmp-list li:last-child { margin-bottom: 0; }
+    .cmp-list li::before {
+      content: '';
+      width: 5px;
+      height: 5px;
+      border-radius: 50%;
+      background: var(--c-greige);
+      flex-shrink: 0;
+      margin-top: 9px;
+    }
+    .cmp-card--trial .cmp-list li { color: #253749; }
+    .cmp-card--trial .cmp-list li::before { background: var(--c-forest); opacity: 0.75; }
+
+    /* ════════════════════════════════
+       04 OUR STORY
+    ════════════════════════════════ */
+    .story-layout {
+      display: block;
+      max-width: 700px;
+    }
+    .story-layout h2 { margin-bottom: 32px; font-size: clamp(22px, 3.2vw, 36px); }
+    .story-img { display: none; }
+    .story-quote-block {
+      margin: 56px 0;
+      padding: 52px 0 52px 40px;
+      background: none;
+      border-radius: 0;
+      border-left: 2px solid rgba(49,71,94,0.4);
+      box-shadow: none;
+    }
+    .story-big-quote {
+      font-family: var(--ff-serif);
+      font-size: clamp(34px, 4.2vw, 52px);
+      font-weight: 300;
+      color: var(--c-forest);
+      line-height: 1.15;
+      letter-spacing: 0.01em;
+      margin-bottom: 16px;
+      white-space: nowrap;
+    }
+    .story-quote-sub {
+      font-family: var(--ff-serif);
+      font-size: clamp(14px, 1.35vw, 16px);
+      font-weight: 300;
+      color: var(--c-sub);
+      line-height: 1.9;
+      margin: 0;
+      font-feature-settings: "palt";
+    }
+    .story-reason-lead {
+      font-family: var(--ff-serif);
+      font-size: clamp(15px, 1.4vw, 17px);
+      font-weight: 300;
+      color: var(--c-forest);
+      letter-spacing: 0.03em;
+      line-height: 1.9;
+      margin-bottom: 28px;
+    }
+    .story-cta-note {
+      margin-top: 48px;
+      padding: 24px 28px;
+      background: var(--c-forest-lt);
+      border-left: 3px solid var(--c-forest);
+      border-radius: var(--r-md);
+    }
+    .story-cta-note p {
+      font-size: 14px;
+      color: var(--c-sub);
+      line-height: 2.0;
+      margin-bottom: 18px;
+    }
+    .story-disc {
+      margin-top: 24px;
+      padding-top: 18px;
+      border-top: 1px solid var(--c-border);
+      font-size: 12px;
+      color: var(--c-hint);
+      line-height: 1.85;
+    }
+
+    /* ════════════════════════════════
+       05 DESTINATION
+    ════════════════════════════════ */
+    .dest-layout {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 72px;
+      align-items: center;
+    }
+    .dest-img img {
+      height: 440px;
+      object-fit: cover;
+      border-radius: var(--r-md);
+      width: 100%;
+      box-shadow: 0 8px 32px rgba(31,42,55,0.1);
+    }
+    .dest-note {
+      margin-top: 22px;
+      font-size: 12.5px;
+      color: var(--c-hint);
+      line-height: 1.9;
+      padding-top: 18px;
+      border-top: 1px solid var(--c-border);
+    }
+
+    /* ════════════════════════════════
+       06 OBSERVATION
+    ════════════════════════════════ */
+    .obs-head { max-width: 600px; margin-bottom: 48px; }
+    .obs-head h2 { margin-bottom: 8px; }
+    .obs-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 24px;
+      margin-bottom: 40px;
+      align-items: stretch;
+    }
+    .obs-card {
+      position: relative;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+      height: 100%;
+      min-height: 250px;
+      box-sizing: border-box;
+      background: var(--c-white);
+      border: 1px solid rgba(49,71,94,0.17);
+      border-top: 2px solid rgba(49,71,94,0.26);
+      border-radius: var(--r-md);
+      padding: 24px 24px 22px;
+      box-shadow: 0 4px 20px rgba(31,42,55,0.07);
+      transition: transform 0.22s ease, box-shadow 0.22s ease, border-color 0.22s ease;
+    }
+    .obs-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 10px 32px rgba(31,42,55,0.075);
+      border-top-color: rgba(49,71,94,0.35);
+    }
+    .obs-num {
+      position: static;
+      display: inline-block;
+      margin: 0 0 10px 0;
+      font-family: var(--ff-en);
+      font-size: 16px;
+      letter-spacing: 0.08em;
+      font-weight: 300;
+      color: var(--c-forest);
+      opacity: 0.42;
+      line-height: 1;
+    }
+    .obs-card h3 {
+      position: relative;
+      z-index: 1;
+      font-size: 15px;
+      color: var(--c-text);
+      margin: 0 0 10px 0;
+      padding-right: 0;
+      line-height: 1.5;
+      word-break: keep-all;
+      overflow-wrap: break-word;
+    }
+    .obs-card p:not(.obs-num) {
+      position: relative;
+      z-index: 1;
+      font-size: 13.5px;
+      margin: 0;
+      line-height: 1.8;
+    }
+    .obs-footer {
+      max-width: 600px;
+      padding: 28px 32px;
+      background: var(--c-forest-lt);
+      border-left: 3px solid var(--c-forest);
+      border-radius: var(--r-md);
+      box-shadow: 0 2px 16px rgba(31,42,55,0.06);
+    }
+    .obs-footer p { font-size: 14px; color: #2D3E52; margin: 0; line-height: 2.0; }
+
+    /* ════════════════════════════════
+       07 ITINERARY
+    ════════════════════════════════ */
+    .itin-head { max-width: 580px; margin-bottom: 52px; }
+    .itin-head h2 { margin-bottom: 8px; }
+    .itin-list { list-style: none; }
+    .itin-item {
+      display: grid;
+      grid-template-columns: 44px 1fr;
+      gap: 24px;
+      align-items: start;
+      margin-bottom: 36px;
+      position: relative;
+    }
+    .itin-item:last-child { margin-bottom: 0; }
+    .itin-item:not(:last-child) .itin-step::after {
+      content: '';
+      position: absolute;
+      left: 21px;
+      top: 44px;
+      bottom: -36px;
+      width: 1px;
+      background: var(--c-greige);
+    }
+    .itin-step {
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      background: var(--c-forest-lt);
+      border: 1.5px solid rgba(49,71,94,0.22);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      position: relative;
+    }
+    .itin-n {
+      font-family: var(--ff-en);
+      font-size: 13px;
+      font-weight: 400;
+      color: var(--c-forest);
+    }
+    .itin-body { padding-top: 8px; }
+    .itin-body h3 {
+      font-size: 15px;
+      font-weight: 400;
+      color: var(--c-text);
+      margin-bottom: 6px;
+      line-height: 1.55;
+    }
+    .itin-body p { font-size: 13.5px; margin: 0; line-height: 1.95; }
+    .itin-note {
+      margin-top: 44px;
+      font-size: 12.5px;
+      color: var(--c-hint);
+      line-height: 1.85;
+      padding-top: 22px;
+      border-top: 1px solid var(--c-border);
+    }
+
+    /* ════════════════════════════════
+       08 DETAILS
+    ════════════════════════════════ */
+    .details-head {
+      max-width: 540px;
+      margin: 0 auto 52px;
+      text-align: center;
+    }
+    .details-head h2 { margin-bottom: 8px; }
+    .status-grid {
+      display: grid;
+      grid-template-columns: repeat(6, 1fr);
+      gap: 16px;
+      margin-bottom: 44px;
+    }
+    .st-card:nth-child(1) { grid-column: 1 / 3; }
+    .st-card:nth-child(2) { grid-column: 3 / 5; }
+    .st-card:nth-child(3) { grid-column: 5 / 7; }
+    .st-card:nth-child(4) { grid-column: 2 / 4; }
+    .st-card:nth-child(5) { grid-column: 4 / 6; }
+    .st-card {
+      background: var(--c-white);
+      border: 1px solid rgba(49,71,94,0.17);
+      border-radius: var(--r-md);
+      padding: 28px 20px 24px;
+      text-align: center;
+      box-shadow: 0 2px 16px rgba(31,42,55,0.07);
+    }
+    .st-icon {
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      background: var(--c-bg);
+      border: 1px solid var(--c-border);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 16px;
+      color: var(--c-hint);
+    }
+    .st-icon svg { width: 19px; height: 19px; }
+    .st-en {
+      font-family: var(--ff-en);
+      font-size: 9.5px;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--c-hint);
+      display: block;
+      margin-bottom: 4px;
+    }
+    .st-ja {
+      font-size: 14.5px;
+      font-weight: 400;
+      color: var(--c-text);
+      display: block;
+      margin-bottom: 14px;
+    }
+    .st-pill {
+      display: inline-flex;
+      align-items: flex-start;
+      gap: 5px;
+      background: var(--c-ivory);
+      color: var(--c-hint);
+      font-size: 11px;
+      padding: 5px 14px;
+      border-radius: 8px;
+      border: 1px solid var(--c-border);
+      line-height: 1.55;
+      white-space: normal;
+      text-align: left;
+      max-width: 100%;
+    }
+    .st-pill::before {
+      content: '';
+      width: 5px;
+      height: 5px;
+      border-radius: 50%;
+      background: var(--c-forest);
+      opacity: 0.5;
+      flex-shrink: 0;
+      margin-top: 4px;
+    }
+    .st-card--decided .st-pill {
+      background: var(--c-forest-lt);
+      color: var(--c-forest);
+      border-color: rgba(49,71,94,0.22);
+      font-weight: 400;
+    }
+    .st-card--decided .st-pill::before { opacity: 1; }
+    .details-sub {
+      max-width: 520px;
+      margin: 0 auto;
+      text-align: center;
+    }
+    .details-sub p { font-size: 14px; line-height: 2.1; }
+
+    /* ════════════════════════════════
+       09 LINE CTA
+    ════════════════════════════════ */
+    .line-cta-sec {
+      padding: 96px 44px;
+      text-align: center;
+    }
+    .line-cta-inner { max-width: 720px; margin: 0 auto; }
+    .line-benefits {
+      background: var(--c-white);
+      border: 1px solid rgba(49,71,94,0.17);
+      border-left: 3px solid var(--c-forest);
+      border-radius: var(--r-md);
+      padding: 26px 30px;
+      margin-bottom: 36px;
+      text-align: left;
+      box-shadow: 0 2px 16px rgba(31,42,55,0.07);
+    }
+    .line-benefits-title {
+      font-family: var(--ff-serif);
+      font-size: 14px;
+      font-weight: 400;
+      color: var(--c-forest);
+      letter-spacing: 0.04em;
+      margin-bottom: 14px;
+    }
+    .line-benefits-list {
+      list-style: none;
+      padding: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 7px;
+    }
+    .line-benefits-list li {
+      font-size: 13.5px;
+      color: var(--c-sub);
+      padding-left: 18px;
+      position: relative;
+      line-height: 1.8;
+    }
+    .line-benefits-list li::before {
+      content: '・';
+      position: absolute;
+      left: 0;
+      color: var(--c-forest);
+    }
+    .line-steps { margin-bottom: 44px; }
+    .line-steps-title {
+      font-family: var(--ff-serif);
+      font-size: 14px;
+      font-weight: 400;
+      color: var(--c-forest);
+      letter-spacing: 0.04em;
+      margin-bottom: 20px;
+    }
+    .line-step-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+      text-align: left;
+    }
+    .line-step-card {
+      background: var(--c-white);
+      border: 1px solid rgba(49,71,94,0.17);
+      border-top: 2px solid rgba(49,71,94,0.24);
+      border-radius: var(--r-md);
+      padding: 24px 22px;
+      box-shadow: 0 2px 12px rgba(31,42,55,0.06);
+    }
+    .line-step-num {
+      display: block;
+      font-family: var(--ff-en);
+      font-size: 11px;
+      letter-spacing: 0.18em;
+      color: var(--c-forest);
+      opacity: 0.65;
+      margin-bottom: 8px;
+    }
+    .line-step-card h4 {
+      font-family: var(--ff-serif);
+      font-size: 14px;
+      font-weight: 400;
+      color: var(--c-text);
+      margin-bottom: 8px;
+      line-height: 1.6;
+    }
+    .line-step-card p {
+      font-size: 12.5px;
+      color: var(--c-sub);
+      line-height: 1.9;
+      margin: 0;
+    }
+    .line-micro {
+      display: block;
+      font-family: var(--ff-en);
+      font-size: 12px;
+      letter-spacing: 0.2em;
+      color: var(--c-forest);
+      margin-bottom: 16px;
+      opacity: 0.8;
+    }
+    .line-cta-inner h2 {
+      font-size: clamp(22px, 2.8vw, 30px);
+      margin-bottom: 12px;
+    }
+    .line-cta-desc {
+      font-size: 15px;
+      line-height: 2.1;
+      margin-bottom: 44px;
+      color: var(--c-sub);
+    }
+    .line-cta-btn-wrap { margin-bottom: 28px; }
+    .line-reassure {
+      font-size: 12.5px;
+      color: rgba(90,107,122,0.78);
+      line-height: 2.0;
+    }
+    .line-reassure strong {
+      display: block;
+      color: var(--c-sub);
+      font-weight: 400;
+      margin-bottom: 4px;
+    }
+
+    /* ════════════════════════════════
+       10 FAQ
+    ════════════════════════════════ */
+    .faq-head { max-width: 540px; margin-bottom: 48px; }
+    .faq-head h2 { margin-bottom: 12px; }
+    .faq-lead {
+      font-size: 13.5px;
+      color: var(--c-hint);
+      line-height: 1.95;
+      margin-top: 8px;
+    }
+    .faq-cta-note {
+      margin-top: 44px;
+      padding-top: 36px;
+      border-top: 1px solid var(--c-border);
+      text-align: center;
+    }
+    .faq-cta-note p {
+      font-size: 14px;
+      color: var(--c-sub);
+      line-height: 2.0;
+      margin-bottom: 22px;
+    }
+    .faq-list { border-top: 1px solid rgba(49,71,94,0.18); }
+    .faq-item { border-bottom: 1px solid rgba(49,71,94,0.18); }
+    .faq-q {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      width: 100%;
+      padding: 22px 4px;
+      background: none;
+      border: none;
+      cursor: pointer;
+      text-align: left;
+      font-family: var(--ff-sans);
+      font-size: 15px;
+      font-weight: 400;
+      color: var(--c-text);
+      line-height: 1.65;
+      gap: 16px;
+      transition: color 0.2s;
+    }
+    .faq-q:hover { color: var(--c-forest); }
+    .faq-icon {
+      flex-shrink: 0;
+      width: 26px;
+      height: 26px;
+      border: 1px solid var(--c-border);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 18px;
+      color: var(--c-forest);
+      line-height: 1;
+      transition: transform 0.3s ease;
+    }
+    .faq-item.open .faq-icon { transform: rotate(45deg); }
+    .faq-a {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.38s ease;
+    }
+    .faq-a-inner { padding-bottom: 26px; }
+    .faq-a-inner p { font-size: 14px; line-height: 2.05; color: var(--c-sub); margin-bottom: 8px; }
+    .faq-a-inner p:last-child { margin-bottom: 0; }
+
+    /* ════════════════════════════════
+       11 FINAL CTA
+    ════════════════════════════════ */
+    .final-sec {
+      position: relative;
+      min-height: 520px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 96px 44px;
+      overflow: hidden;
+    }
+    .final-bg {
+      position: absolute;
+      inset: 0;
+      background-image: url('./images/palm-lined-street.png');
+      background-size: cover;
+      background-position: center;
+    }
+    .final-overlay {
+      position: absolute;
+      inset: 0;
+      background: rgba(15,25,40,0.60);
+    }
+    .final-content { position: relative; z-index: 1; max-width: 600px; }
+    .final-en {
+      font-family: var(--ff-en);
+      font-size: 11px;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.45);
+      display: block;
+      margin-bottom: 20px;
+    }
+    .final-h2 {
+      font-family: var(--ff-serif);
+      font-size: clamp(22px, 3.6vw, 36px);
+      font-weight: 300;
+      line-height: 1.7;
+      color: #fff;
+      letter-spacing: -0.01em;
+      font-feature-settings: "palt";
+      margin-bottom: 16px;
+    }
+    .final-sub {
+      font-size: 14px;
+      color: rgba(255,255,255,0.68);
+      line-height: 2.0;
+      margin-bottom: 48px;
+    }
+    .final-micro {
+      display: block;
+      font-size: 12px;
+      color: rgba(255,255,255,0.42);
+      line-height: 1.9;
+      margin-bottom: 20px;
+    }
+
+    /* ════════════════════════════════
+       FOOTER
+    ════════════════════════════════ */
+    footer {
+      background: var(--c-charcoal);
+      color: #fff;
+      padding: 52px 44px;
+      text-align: center;
+    }
+    .footer-inner { max-width: 1060px; margin: 0 auto; }
+    .footer-name {
+      font-family: var(--ff-serif);
+      font-size: 15px;
+      font-weight: 400;
+      letter-spacing: 0.04em;
+      margin-bottom: 4px;
+    }
+
+    .footer-links {
+      display: flex;
+      justify-content: center;
+      gap: 28px;
+      margin-top: 20px;
+      margin-bottom: 24px;
+      flex-wrap: wrap;
+    }
+    .footer-links a {
+      color: rgba(255,255,255,0.42);
+      font-size: 12.5px;
+      letter-spacing: 0.02em;
+      transition: color 0.2s;
+    }
+    .footer-links a:hover { color: rgba(255,255,255,0.78); }
+    .footer-copy { font-size: 11.5px; color: rgba(255,255,255,0.22); }
+
+    /* ── REFINED DESIGN TOUCHES ── */
+
+    /* 比較: 右カード（このプログラム）を主役化 */
+    .cmp-card--trial {
+      box-shadow: 0 6px 36px rgba(49,71,94,0.12);
+      padding: 40px 36px;
+    }
+
+    /* お悩みカードの質感強化 */
+    .empathy-card {
+      background: rgba(255,255,255,0.82);
+      backdrop-filter: blur(4px);
+    }
+
+
+    /* タイムライン連結線の洗練 */
+    .itin-item:not(:last-child) .itin-step::after {
+      background: linear-gradient(to bottom, var(--c-greige), transparent);
+    }
+
+    /* セクション見出しと本文の間隔改善 */
+    .obs-head p,
+    .compare-head p,
+    .itin-head p,
+    .dest-text p:first-of-type {
+      font-size: 14.5px;
+      color: var(--c-hint);
+    }
+
+    /* Details カードの st-ja フォント洗練 */
+    .st-ja {
+      font-family: var(--ff-serif);
+      font-size: 14px;
+    }
+
+    /* セクション区切りルールの洗練 */
+    .sec-rule {
+      background: linear-gradient(to right, var(--c-forest), rgba(49,71,94,0.2));
+      opacity: 0.7;
+    }
+
+    /* Line CTA セクションの区切り感強化 */
+    .line-cta-sec {
+      border-top: 1px solid rgba(49,71,94,0.1);
+      border-bottom: 1px solid rgba(49,71,94,0.1);
+    }
+
+    /* story-text の中の p 間隔調整 */
+    #story .story-text > p { margin-bottom: 16px; }
+
+    /* obs-footer を bg 背景上でより目立たせる */
+    .obs-footer {
+      border: 1px solid rgba(49,71,94,0.1);
+    }
+
+    /* Details st-card decided のアイコン背景 */
+    .st-card--decided .st-icon {
+      background: var(--c-forest-lt);
+      border-color: rgba(49,71,94,0.18);
+    }
+
+    /* FAQ Q テキストの洗練 */
+    .faq-q {
+      font-family: var(--ff-serif);
+      font-weight: 400;
+    }
+
+    /* 比較セクションの背景を明るい ivory に */
+    .compare-head { padding-top: 4px; }
+
+
+    /* Our Story: 余白を整え、落ち着いた読み心地に */
+    .story-layout { max-width: 680px; }
+    .story-layout p { line-height: 2.1; }
+    .story-quote-block {
+      margin: 44px 0;
+      padding: 40px 0 40px 36px;
+    }
+
+    /* CTA ボタン: 深みある落ち着いたフォレストグリーンに変更 */
+    .btn-line {
+      background: #31475E;
+      box-shadow: 0 4px 22px rgba(49,71,94,0.22);
+    }
+    .btn-line:hover {
+      background: #253749;
+      box-shadow: 0 8px 30px rgba(49,71,94,0.32);
+    }
+
+    /* ── MOBILE STICKY CTA ── */
+    .mob-cta-bar {
+      display: none;
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      z-index: 90;
+      background: rgba(247,245,240,0.96);
+      backdrop-filter: blur(8px);
+      border-top: 1px solid var(--c-border);
+      padding: 12px 20px 18px;
+      transform: translateY(100%);
+      transition: transform 0.3s ease;
+    }
+    .mob-cta-bar.vis { transform: translateY(0); }
+    .mob-cta-bar .btn-line { width: 100%; padding: 14px 20px; font-size: 14px; }
+
+    /* ════════════════════════════════
+       SECTION DIVIDER IMAGE
+    ════════════════════════════════ */
+    .sec-divider {
+      width: 100%;
+      height: 300px;
+      overflow: hidden;
+    }
+    .sec-divider img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center 45%;
+      display: block;
+      filter: brightness(0.84) saturate(0.75);
+    }
+
+    /* ════════════════════════════════
+       ITINERARY IMAGE STRIP
+    ════════════════════════════════ */
+    .itin-img-wrap {
+      position: relative;
+      width: 100%;
+      height: 290px;
+      border-radius: var(--r-md);
+      overflow: hidden;
+      margin-bottom: 48px;
+      box-shadow: 0 4px 24px rgba(31,42,55,0.1);
+    }
+    .itin-img-wrap img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: 38% 28%;
+    }
+    .itin-img-wrap::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to left, rgba(15,25,40,0.28) 0%, transparent 58%),
+                  linear-gradient(to top,  rgba(15,25,40,0.15) 0%, transparent 40%);
+      pointer-events: none;
+    }
+
+    /* ════════════════════════════════
+       RESPONSIVE
+    ════════════════════════════════ */
+    @media (max-width: 900px) {
+      .obs-grid    { grid-template-columns: repeat(2, minmax(0,1fr)); }
+      .obs-card    { min-height: 240px; }
+      .status-grid { grid-template-columns: repeat(2,1fr); }
+    }
+
+    @media (max-width: 768px) {
+      .wrap { padding: 0 20px; }
+      .nav  { padding: 13px 20px; }
+      .sec  { padding: 64px 0; }
+
+      .hero { grid-template-columns: 1fr; min-height: auto; }
+      .hero-text { padding: 60px 20px 44px; order: 1; }
+      .hero-text-inner { max-width: 100%; }
+      .hero-img { height: 56vw; min-height: 220px; order: 2; }
+
+      .forwhom-head { margin-bottom: 32px; }
+      .forwhom-grid { grid-template-columns: 1fr; gap: 10px; margin-bottom: 40px; }
+      .empathy-grid { grid-template-columns: 1fr; gap: 12px; }
+      .empathy-card:last-child { grid-column: auto; }
+
+      .compare-cols { grid-template-columns: 1fr; gap: 24px; }
+      .cmp-card { padding: 28px 24px; }
+      .cmp-card--trial { padding: 32px 24px; }
+
+      .story-big-quote { white-space: normal; font-size: 30px; }
+      .story-quote-block { margin: 32px 0; padding: 32px 0 32px 24px; }
+
+      .dest-layout { grid-template-columns: 1fr; gap: 32px; }
+      .dest-img img { height: 220px; box-shadow: 0 4px 20px rgba(31,42,55,0.1); }
+
+      .obs-grid { grid-template-columns: 1fr; gap: 12px; }
+      .obs-card { min-height: auto; padding: 22px 20px; }
+
+      .status-grid { grid-template-columns: 1fr 1fr; gap: 12px; }
+      .st-card:nth-child(n) { grid-column: auto; }
+      .st-card { padding: 22px 16px 18px; }
+
+      .sec-divider  { height: 200px; }
+      .itin-img-wrap { height: 200px; margin-bottom: 36px; }
+
+      .line-cta-sec { padding: 72px 20px; }
+      .line-step-grid { grid-template-columns: 1fr; }
+      .final-sec    { padding: 64px 20px; }
+      footer        { padding: 40px 20px; }
+
+      .mob-cta-bar { display: block; }
+      .nav-btn-desktop { display: none; }
+      .nav-links { display: none; }
+    }
+
+    @media (max-width: 480px) {
+      .sec { padding: 52px 0; }
+      .status-grid  { grid-template-columns: 1fr; }
+      .st-card:nth-child(n) { grid-column: auto; }
+      .btn-line     { width: 100%; justify-content: center; padding: 15px 20px; }
+      .hero-h1      { font-size: 25px; }
+      .hero-lead    { font-size: 14px; line-height: 1.95; }
+      .story-big-quote { font-size: 28px; white-space: normal; }
+      .story-quote-block { padding: 28px 0 28px 20px; margin: 32px 0; }
+      .compare-cols { gap: 20px; }
+      .cmp-card     { padding: 28px 20px; }
+      .cmp-card--trial { padding: 32px 20px; }
+      .itin-item    { grid-template-columns: 36px 1fr; gap: 16px; }
+      .itin-step    { width: 36px; height: 36px; }
+      .forwhom-grid { gap: 10px; }
+      .obs-grid     { gap: 10px; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="nav">
+  <div class="nav-inner">
+    <div class="nav-brand">
+      <span class="nav-brand-main">親子海外トライアル</span>
+      <span class="nav-brand-sub">Hidamari Lab</span>
+    </div>
+    <nav class="nav-links">
+      <a href="#for-whom">対象のご家庭</a>
+      <a href="#compare">違い</a>
+      <a href="#itinerary">過ごし方</a>
+      <a href="#faq">FAQ</a>
+    </nav>
+    <a href="#line-cta" class="btn-line btn-line--sm nav-btn-desktop">
+      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M19.365 9.863c.349 0 .63.285.63.631 0 .345-.281.63-.63.63H17.61v1.125h1.755c.349 0 .63.283.63.63 0 .344-.281.629-.63.629h-2.386c-.345 0-.627-.285-.627-.629V8.108c0-.345.282-.63.627-.63h2.386c.349 0 .63.285.63.63 0 .349-.281.63-.63.63H17.61v1.125h1.755zm-3.855 3.016c0 .27-.174.51-.432.596-.064.021-.133.031-.199.031-.211 0-.391-.09-.51-.25l-2.443-3.317v2.94c0 .344-.279.629-.631.629-.346 0-.626-.285-.626-.629V8.108c0-.27.173-.51.43-.595.06-.023.136-.033.194-.033.195 0 .375.104.495.254l2.462 3.33V8.108c0-.345.282-.63.63-.63.345 0 .63.285.63.63v4.771zm-5.741 0c0 .344-.282.629-.631.629-.345 0-.627-.285-.627-.629V8.108c0-.345.282-.63.627-.63.349 0 .631.285.631.63v4.771zm-2.466.629H4.917c-.345 0-.63-.285-.63-.629V8.108c0-.345.285-.63.63-.63.348 0 .63.285.63.63v4.141h1.756c.348 0 .629.283.629.63 0 .344-.281.629-.629.629M24 10.314C24 4.943 18.615.572 12 .572S0 4.943 0 10.314c0 4.811 4.27 8.842 10.035 9.608.391.082.923.258 1.058.59.12.301.079.766.038 1.08l-.164 1.02c-.045.301-.24 1.186 1.049.645 1.291-.539 6.916-4.078 9.436-6.975C23.176 14.393 24 12.458 24 10.314"/></svg>
+      先行案内を受け取る
+    </a>
+  </div>
+</nav>
+
+<!-- ====================================================
+  01 HERO
+===================================================== -->
+<section class="hero" id="hero">
+  <div class="hero-text">
+    <div class="hero-text-inner">
+      <span class="hero-service fi">Oyako Kaigai Trial · 陽だまりラボ</span>
+      <p class="hero-intro fi fi-d1">日本の学校に合わせることだけが、この子の未来なのだろうか。</p>
+      <h1 class="hero-h1 fi fi-d1">この子に合う場所は、<br>日本の学校だけなのだろうか。</h1>
+      <p class="hero-lead fi fi-d2">
+        長期留学や移住を決める前に。<br>
+        親子で海外という選択肢を短く試し、<br>
+        子どもに合う環境やこれからの関わり方を<br>
+        考えるための親子海外トライアルです。
+      </p>
+      <div class="hero-badge-wrap fi fi-d3">
+        <span class="badge">
+          <span class="badge-dot"></span>
+          数組限定の先行モニター案内を受付中です
+        </span>
+        <p style="font-size:11.5px;color:var(--c-hint);margin-top:10px;line-height:1.85;">主な対象：小学生のお子さまと保護者<br><span style="font-size:11px;">※未就学児・中学生は個別にご相談ください</span></p>
+      </div>
+      <div class="fi fi-d3" style="margin-bottom:24px;padding:16px 20px;background:var(--c-forest-lt);border-left:3px solid var(--c-forest);border-radius:var(--r-md);">
+        <p style="font-size:12.5px;color:var(--c-sub);line-height:1.95;margin:0;">現在は正式募集前の先行案内ページです。<br>今後、数組限定の先行モニターを募集予定です。<br>実施時期・プログラム内容・参加条件・費用目安が整いしだい、LINE登録者へ先行してご案内します。<br><span style="color:var(--c-hint);">LINE登録だけで、参加申込にはなりません。</span></p>
+      </div>
+      <div class="hero-cta-wrap fi fi-d4">
+        <a href="#line-cta" class="btn-line">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M19.365 9.863c.349 0 .63.285.63.631 0 .345-.281.63-.63.63H17.61v1.125h1.755c.349 0 .63.283.63.63 0 .344-.281.629-.63.629h-2.386c-.345 0-.627-.285-.627-.629V8.108c0-.345.282-.63.627-.63h2.386c.349 0 .63.285.63.63 0 .349-.281.63-.63.63H17.61v1.125h1.755zm-3.855 3.016c0 .27-.174.51-.432.596-.064.021-.133.031-.199.031-.211 0-.391-.09-.51-.25l-2.443-3.317v2.94c0 .344-.279.629-.631.629-.346 0-.626-.285-.626-.629V8.108c0-.27.173-.51.43-.595.06-.023.136-.033.194-.033.195 0 .375.104.495.254l2.462 3.33V8.108c0-.345.282-.63.63-.63.345 0 .63.285.63.63v4.771zm-5.741 0c0 .344-.282.629-.631.629-.345 0-.627-.285-.627-.629V8.108c0-.345.282-.63.627-.63.349 0 .631.285.631.63v4.771zm-2.466.629H4.917c-.345 0-.63-.285-.63-.629V8.108c0-.345.285-.63.63-.63.348 0 .63.285.63.63v4.141h1.756c.348 0 .629.283.629.63 0 .344-.281.629-.629.629M24 10.314C24 4.943 18.615.572 12 .572S0 4.943 0 10.314c0 4.811 4.27 8.842 10.035 9.608.391.082.923.258 1.058.59.12.301.079.766.038 1.08l-.164 1.02c-.045.301-.24 1.186 1.049.645 1.291-.539 6.916-4.078 9.436-6.975C23.176 14.393 24 12.458 24 10.314"/></svg>
+          数組限定の先行モニター案内を受け取る
+        </a>
+        <p class="hero-cta-note">LINE登録だけで、参加申込にはなりません。</p>
+      </div>
+      <span class="hero-byline fi fi-d5">Hidamari Lab</span>
+    </div>
+  </div>
+  <div class="hero-img">
+    <img
+      src="./images/hero-parent-child.png"
+      alt="南国の街を親子で歩く様子"
+      loading="eager"
+    >
+  </div>
+</section>
+
+<!-- ====================================================
+  01b FOR-WHOM
+===================================================== -->
+<section class="sec" id="for-whom">
+  <div class="wrap">
+    <div class="forwhom-head fi">
+      <span class="en-label">For Your Family</span>
+      <div class="sec-rule"></div>
+      <h2>こんな方に向けて<br>準備しています</h2>
+      <p class="forwhom-lead">
+        親子海外トライアルは、すぐに留学や移住を決めたいご家庭のためだけのものではありません。<br>
+        日本の学校だけを前提にしてよいのか、親子で一度立ち止まって考えたいご家庭に向けて準備しています。
+      </p>
+    </div>
+
+    <div class="forwhom-grid fi">
+      <div class="forwhom-item">
+        <span class="forwhom-check"></span>
+        <p>日本の学校に合わせ続けることが、この子に合っているのか考えることがある</p>
+      </div>
+      <div class="forwhom-item">
+        <span class="forwhom-check"></span>
+        <p>今すぐ留学や移住を決めたいわけではないが、海外という選択肢を一度見てみたい</p>
+      </div>
+      <div class="forwhom-item">
+        <span class="forwhom-check"></span>
+        <p>子どもに合う環境を、机上の情報だけでなく実際の体験から考えたい</p>
+      </div>
+      <div class="forwhom-item">
+        <span class="forwhom-check"></span>
+        <p>学校や集団生活の中で、子どもが少し無理をしているように感じることがある</p>
+      </div>
+      <div class="forwhom-item">
+        <span class="forwhom-check"></span>
+        <p>中学進学や次の環境を考える前に、一度視野を広げておきたい</p>
+      </div>
+      <div class="forwhom-item">
+        <span class="forwhom-check"></span>
+        <p>旅行ではなく、親子で次の選択肢を考える時間を持ちたい</p>
+      </div>
+    </div>
+
+    <div class="forwhom-close fi">
+      <p class="forwhom-close-text">
+        ひとつでも近いものがあれば、まずはLINEで数組限定の先行モニター案内を受け取ってください。
+        <span class="forwhom-close-note">LINE登録だけで参加申込にはなりません。</span>
+      </p>
+      <a href="#line-cta" class="btn-line">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M19.365 9.863c.349 0 .63.285.63.631 0 .345-.281.63-.63.63H17.61v1.125h1.755c.349 0 .63.283.63.63 0 .344-.281.629-.63.629h-2.386c-.345 0-.627-.285-.627-.629V8.108c0-.345.282-.63.627-.63h2.386c.349 0 .63.285.63.63 0 .349-.281.63-.63.63H17.61v1.125h1.755zm-3.855 3.016c0 .27-.174.51-.432.596-.064.021-.133.031-.199.031-.211 0-.391-.09-.51-.25l-2.443-3.317v2.94c0 .344-.279.629-.631.629-.346 0-.626-.285-.626-.629V8.108c0-.27.173-.51.43-.595.06-.023.136-.033.194-.033.195 0 .375.104.495.254l2.462 3.33V8.108c0-.345.282-.63.63-.63.345 0 .63.285.63.63v4.771zm-5.741 0c0 .344-.282.629-.631.629-.345 0-.627-.285-.627-.629V8.108c0-.345.282-.63.627-.63.349 0 .631.285.631.63v4.771zm-2.466.629H4.917c-.345 0-.63-.285-.63-.629V8.108c0-.345.285-.63.63-.63.348 0 .63.285.63.63v4.141h1.756c.348 0 .629.283.629.63 0 .344-.281.629-.629.629M24 10.314C24 4.943 18.615.572 12 .572S0 4.943 0 10.314c0 4.811 4.27 8.842 10.035 9.608.391.082.923.258 1.058.59.12.301.079.766.038 1.08l-.164 1.02c-.045.301-.24 1.186 1.049.645 1.291-.539 6.916-4.078 9.436-6.975C23.176 14.393 24 12.458 24 10.314"/></svg>
+        数組限定の先行モニター案内を受け取る
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- VISUAL DIVIDER -->
+<div class="sec-divider" aria-hidden="true">
+  <img
+    src="./images/airport-departure-lounge.png"
+    alt=""
+    loading="lazy"
+  >
+</div>
+
+<!-- ====================================================
+  03 COMPARISON
+===================================================== -->
+<section class="sec" id="compare">
+  <div class="wrap">
+    <div class="compare-head fi">
+      <span class="en-label">What Makes This Different</span>
+      <div class="sec-rule"></div>
+      <h2>語学を学びに行くのではなく、<br>親子で"次の選択"を考えに行く。</h2>
+      <p>一般的な親子留学とは、目的が異なります。</p>
+    </div>
+
+    <div class="compare-cols fi">
+      <div class="cmp-card cmp-card--normal">
+        <p class="cmp-title">一般的な親子留学</p>
+        <ul class="cmp-list">
+          <li>英語学習や異文化体験が中心</li>
+          <li>保護者は待機・見守りが基本になりやすい</li>
+          <li>子どもの成長体験が主目的</li>
+          <li>帰国後の家庭での関わり方までは設計されにくい</li>
+        </ul>
+      </div>
+      <div class="cmp-card cmp-card--trial">
+        <p class="cmp-title">親子海外トライアル</p>
+        <ul class="cmp-list">
+          <li>親子で次の選択を考える材料を持ち帰る</li>
+          <li>現地で見えた親子の反応を家庭に戻す</li>
+          <li>子どもの状態と親の関わり方を見直す</li>
+          <li>帰国後の声かけ・任せ方・支え方につなげる</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ====================================================
+  05 DESTINATION
+===================================================== -->
+<section class="sec sec--ivory">
+  <div class="wrap">
+    <div class="dest-layout">
+      <div class="dest-img fi">
+        <img
+          src="./images/quiet-philippines-bay.png"
+          alt="穏やかな海と緑に囲まれたフィリピンの入り江"
+          loading="lazy"
+        >
+      </div>
+      <div class="fi fi-d1">
+        <span class="en-label">Initial Location</span>
+        <div class="sec-rule"></div>
+        <h2>まずは、<br>フィリピン・セブ／ボラカイから。</h2>
+        <p>
+          初回は、フィリピン・セブ／ボラカイでの実施を予定しています。
+          親子で海外の環境を短く試し、この子に合う場所や関わり方を考えるための初回トライアルとして準備を進めています。
+        </p>
+        <p>
+          セブ・ボラカイは、気候・現地での生活環境・安全面のバランスが取れており、
+          親子での短期滞在に適した条件が整っています。
+          サポート体制を含め、現地と最終調整を進めています。
+        </p>
+        <p>
+          将来的には、フィリピンに限らず、親子で試せる海外の選択肢を少しずつ広げていく構想です。
+        </p>
+        <p class="dest-note">
+          初回実施候補地はフィリピン・セブ／ボラカイです。その他の国・地域については、現地体制や安全面、サポート範囲が整い次第、公式LINE等でご案内します。
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ====================================================
+  06 OBSERVATION POINTS
+===================================================== -->
+<section class="sec">
+  <div class="wrap">
+    <div class="obs-head fi">
+      <span class="en-label">What to Observe</span>
+      <div class="sec-rule"></div>
+      <h2>体験の中で、<br>親子が気づくこと。</h2>
+      <p>できた・できなかったで評価するのではなく、親子の反応を観察し、次の関わり方を考える視点として持ち帰ります。</p>
+    </div>
+
+    <div class="obs-grid">
+      <div class="obs-card fi fi-d1">
+        <p class="obs-num">01</p>
+        <h3>子どもが安心する環境の条件</h3>
+        <p>どんな場所・状況のとき、この子は落ち着いているのか。その傾向が見えてきます。</p>
+      </div>
+      <div class="obs-card fi fi-d2">
+        <p class="obs-num">02</p>
+        <h3>初めての場所での反応</h3>
+        <p>見知らぬ環境に飛び込んだとき、この子はどう動くのか。その素の姿を親が見守ります。</p>
+      </div>
+      <div class="obs-card fi fi-d3">
+        <p class="obs-num">03</p>
+        <h3>親がつい先回りしたくなる場面</h3>
+        <p>どんなときに親の手が先に動いているか。気づくことで、家庭での関わり方が変わります。</p>
+      </div>
+      <div class="obs-card fi fi-d4">
+        <p class="obs-num">04</p>
+        <h3>子どもが自分で動ける瞬間</h3>
+        <p>親が少し引いたとき、この子はどんな力を見せるのか。その瞬間を見逃さないために。</p>
+      </div>
+      <div class="obs-card fi fi-d5">
+        <p class="obs-num">05</p>
+        <h3>日本に戻ったあと、家庭で変えられること</h3>
+        <p>声かけの仕方、任せ方、支え方——体験から持ち帰った気づきを、日常につなげます。</p>
+      </div>
+    </div>
+
+    <div class="obs-footer fi">
+      <p>このプログラムの目的は、評価ではなく観察です。<br>
+      この子がどんな環境で力を発揮するのか、その材料を親子で一緒に持ち帰ります。</p>
+    </div>
+  </div>
+</section>
+
+<!-- ====================================================
+  07 ITINERARY
+===================================================== -->
+<section class="sec sec--ivory" id="itinerary">
+  <div class="wrap">
+    <div class="itin-head fi">
+      <span class="en-label">Imagined Experience</span>
+      <div class="sec-rule"></div>
+      <h2>想定される過ごし方と、帰国後につなげる流れ</h2>
+      <p>豪華な旅行でも英語漬けの留学でもない。親子で海外の環境を短く体験し、感じたことを持ち帰るプログラムです。実際の内容は現地体制の確認後にご案内します。</p>
+    </div>
+
+    <div class="itin-img-wrap fi">
+      <img
+        src="./images/philippines-market.png"
+        alt="フィリピンの市場に並ぶ果物"
+        loading="lazy"
+      >
+    </div>
+
+    <ul class="itin-list">
+      <li class="itin-item fi fi-d1">
+        <div class="itin-step"><span class="itin-n">1</span></div>
+        <div class="itin-body">
+          <h3>現地での短時間プログラム</h3>
+          <p>英語習得が目的ではなく、外国語の環境に身を置く体験として。言葉が十分に通じない環境で、子どもが何に安心し、何に戸惑うのかを観察します。</p>
+        </div>
+      </li>
+      <li class="itin-item fi fi-d2">
+        <div class="itin-step"><span class="itin-n">2</span></div>
+        <div class="itin-body">
+          <h3>現地での買い物や食事</h3>
+          <p>日常の小さな場面に、親子の素の反応が出ます。スーパー、カフェ、現地の生活圏——普通の生活に触れる時間。</p>
+        </div>
+      </li>
+      <li class="itin-item fi fi-d3">
+        <div class="itin-step"><span class="itin-n">3</span></div>
+        <div class="itin-body">
+          <h3>慣れない環境での親子の確認と選択</h3>
+          <p>いつもと違う環境の中で、親子がどのように確認し合い、判断し、安心できる状態をつくるのかを見つめます。</p>
+        </div>
+      </li>
+      <li class="itin-item fi fi-d4">
+        <div class="itin-step"><span class="itin-n">4</span></div>
+        <div class="itin-body">
+          <h3>現地の人や環境に触れる時間</h3>
+          <p>言葉が通じなくても人と関わる機会。異なる価値観・生活スタイルを、距離を置かずに体験します。</p>
+        </div>
+      </li>
+      <li class="itin-item fi fi-d5">
+        <div class="itin-step"><span class="itin-n">5</span></div>
+        <div class="itin-body">
+          <h3>子どもの反応を親が見守る時間</h3>
+          <p>すぐに動かず、少し待つ。子どもが自分で考え、動こうとする姿を親が観察するための余白の時間。</p>
+        </div>
+      </li>
+      <li class="itin-item fi">
+        <div class="itin-step"><span class="itin-n">6</span></div>
+        <div class="itin-body">
+          <h3>現地での体験を通じて気づいたことを、親子で言葉にする時間</h3>
+          <p>その日に感じたこと、戸惑ったこと、嬉しかったこと——夜や移動中に親子で振り返る余白の時間です。</p>
+        </div>
+      </li>
+    </ul>
+
+    <p class="itin-note fi">※ 実際のプログラム内容・実施時期は、渡航先・現地協力先との調整後にご案内します。初めての海外でも安心して検討いただけるよう、現地で困ったときの相談体制についても確認を進めています。</p>
+  </div>
+</section>
+
+<!-- ====================================================
+  04 OUR STORY
+===================================================== -->
+<section class="sec" id="story">
+  <div class="wrap">
+    <div class="story-layout">
+      <div class="story-text fi">
+        <span class="en-label">Our Story</span>
+        <div class="sec-rule"></div>
+        <h2>このプログラムを<br>準備している理由</h2>
+        <p class="story-reason-lead">私たちは、海外を正解としてすすめたいわけではありません。</p>
+        <p>日本の学校だけを前提にしていると、子どもに合う環境や、親子の関わり方の選択肢が見えにくくなることがあります。</p>
+        <div class="story-quote-block">
+          <p class="story-quote-sub" style="margin-bottom:10px;">実際に海外を体験した結果、</p>
+          <p class="story-big-quote">「日本がいい。」</p>
+          <p class="story-quote-sub">そう感じることもあるかもしれません。</p>
+          <p class="story-quote-sub" style="margin-top:12px;">私たちは、それを失敗だとは考えていません。</p>
+        </div>
+        <p>このプログラムの原点には、メンバー自身が子どもと海外で過ごした経験があります。実際に海外の環境に触れてみることで、「やっぱり日本が合っている」と感じることもあれば、「この子は別の環境の方が自然に動けるかもしれない」と気づくこともあります。</p>
+        <p>選択肢は、実際に選ばなくても、持っているだけで安心になることがあります。</p>
+        <p>大切なのは、海外に行くことそのものではなく、親子で次の選択を考えるための材料を持ち帰ること。</p>
+        <p>そのための小さな入口として、親子海外トライアルを準備しています。初回は少人数のモニター形式を予定しており、詳細はLINE登録者へ先行してご案内します。</p>
+        <p class="story-disc">※ このストーリーは、陽だまりラボの考え方の背景にある実体験をもとにしており、プログラム内容そのものを示すものではありません。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ====================================================
+  08 DETAILS
+===================================================== -->
+<section class="sec sec--ivory">
+  <div class="wrap">
+    <div class="details-head fi">
+      <span class="en-label en-label--c">Preparation Status</span>
+      <div class="sec-rule sec-rule--c"></div>
+      <h2>現在、数組限定の先行モニターを<br>準備中です。</h2>
+      <p style="font-size:14px;line-height:2.1;">
+        ご家庭にとって無理のない参加期間・プログラム内容・サポート範囲になるよう、現地と最終調整を進めています。
+        実施時期・費用目安・参加条件が確定しだい、公式LINEにてご案内します。
+      </p>
+    </div>
+
+    <div class="status-grid fi">
+      <div class="st-card st-card--decided">
+        <div class="st-icon" style="background:var(--c-forest-lt);color:var(--c-forest);">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 2L11 13M22 2l-7 20-4-9-9-4z"/></svg>
+        </div>
+        <span class="st-en">Partner Area</span>
+        <span class="st-ja">初期連携候補エリア</span>
+        <span class="st-pill">フィリピン・セブ／ボラカイ</span>
+      </div>
+      <div class="st-card st-card--decided">
+        <div class="st-icon" style="background:var(--c-forest-lt);color:var(--c-forest);">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87"/><path d="M16 3.13a4 4 0 010 7.75"/></svg>
+        </div>
+        <span class="st-en">Format</span>
+        <span class="st-ja">実施形式</span>
+        <span class="st-pill">親子参加型</span>
+      </div>
+      <div class="st-card">
+        <div class="st-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg>
+        </div>
+        <span class="st-en">Duration</span>
+        <span class="st-ja">参加期間</span>
+        <span class="st-pill">ご家庭の状況・希望に応じて相談</span>
+      </div>
+      <div class="st-card">
+        <div class="st-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2a10 10 0 100 20A10 10 0 0012 2z"/><path d="M12 6v6l4 2"/></svg>
+        </div>
+        <span class="st-en">Fee</span>
+        <span class="st-ja">費用目安</span>
+        <span class="st-pill">参加期間・プログラム内容・サポート範囲により変動</span>
+      </div>
+      <div class="st-card st-card--decided">
+        <div class="st-icon" style="background:var(--c-forest-lt);color:var(--c-forest);">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+        </div>
+        <span class="st-en">Recruitment</span>
+        <span class="st-ja">募集形式</span>
+        <span class="st-pill">数組限定モニター募集予定</span>
+      </div>
+    </div>
+
+    <div class="details-sub fi">
+      <p>
+        内容が整いしだい、公式LINEにてご案内します。<br>
+        まずは登録だけでも大丈夫です。
+      </p>
+      <p style="margin-top:14px;font-size:13px;"><a href="#line-cta" style="color:var(--c-forest);text-decoration:underline;text-underline-offset:3px;letter-spacing:0.02em;">公式LINEで先行案内を受け取る →</a></p>
+    </div>
+  </div>
+</section>
+
+<!-- ====================================================
+  09 LINE CTA
+===================================================== -->
+<section class="sec sec--cta line-cta-sec" id="line-cta">
+  <div class="line-cta-inner fi">
+    <span class="line-micro">＼ 先行案内 受付中 ／</span>
+    <h2>数組限定の先行モニター案内を<br>LINEで受け取る</h2>
+    <p class="line-cta-desc">
+      親子海外トライアルは現在、フィリピン・セブ／ボラカイでの数組限定先行モニタープランを準備しています。<br>
+      実施時期・現地教育プログラム内容・費用目安・サポート範囲などの詳細が決まりしだい、公式LINEにて先行してご案内します。
+    </p>
+
+    <div class="line-benefits">
+      <p class="line-benefits-title">LINE登録で受け取れること</p>
+      <ul class="line-benefits-list">
+        <li>数組限定モニター募集開始のお知らせ</li>
+        <li>実施候補エリア・参加期間・プログラム内容の案内</li>
+        <li>費用・サポート範囲の詳細</li>
+        <li>現地で予定している体験内容</li>
+        <li>個別相談の受付開始のお知らせ</li>
+      </ul>
+    </div>
+
+    <div class="line-steps">
+      <p class="line-steps-title">LINE登録後の流れ</p>
+      <div class="line-step-grid">
+        <div class="line-step-card">
+          <span class="line-step-num">STEP 01</span>
+          <h4>公式LINEに登録</h4>
+          <p>まずは情報を受け取るだけで大丈夫です。LINE登録だけで参加申込にはなりません。</p>
+        </div>
+        <div class="line-step-card">
+          <span class="line-step-num">STEP 02</span>
+          <h4>数組限定の先行モニター案内を受け取る</h4>
+          <p>実施時期・現地教育プログラム内容・費用目安・サポート範囲など、準備が整いしだいお知らせします。</p>
+        </div>
+        <div class="line-step-card">
+          <span class="line-step-num">STEP 03</span>
+          <h4>気になったら個別相談へ</h4>
+          <p>ご家庭の状況やお子さまの様子に合うか、必要に応じて個別にご相談いただけます。</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="line-benefits">
+      <p class="line-benefits-title">今、LINE登録しておく理由</p>
+      <ul class="line-benefits-list">
+        <li>正式募集前に、詳細を先に確認できます</li>
+        <li>数組限定の先行モニター情報を受け取れます</li>
+        <li>参加を決める前に、費用目安・対象条件・プログラムイメージを確認できます</li>
+        <li>LINE登録だけで、参加申込にはなりません</li>
+      </ul>
+    </div>
+
+    <p style="font-size:13.5px;color:var(--c-sub);line-height:1.95;margin-bottom:28px;">
+      数組限定での実施を予定しているため、<br>
+      気になる方は正式募集前に案内を受け取っておくと安心です。
+    </p>
+
+    <div class="line-cta-btn-wrap">
+      <a href="#" class="btn-line" style="padding:18px 48px;font-size:15px;">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M19.365 9.863c.349 0 .63.285.63.631 0 .345-.281.63-.63.63H17.61v1.125h1.755c.349 0 .63.283.63.63 0 .344-.281.629-.63.629h-2.386c-.345 0-.627-.285-.627-.629V8.108c0-.345.282-.63.627-.63h2.386c.349 0 .63.285.63.63 0 .349-.281.63-.63.63H17.61v1.125h1.755zm-3.855 3.016c0 .27-.174.51-.432.596-.064.021-.133.031-.199.031-.211 0-.391-.09-.51-.25l-2.443-3.317v2.94c0 .344-.279.629-.631.629-.346 0-.626-.285-.626-.629V8.108c0-.27.173-.51.43-.595.06-.023.136-.033.194-.033.195 0 .375.104.495.254l2.462 3.33V8.108c0-.345.282-.63.63-.63.345 0 .63.285.63.63v4.771zm-5.741 0c0 .344-.282.629-.631.629-.345 0-.627-.285-.627-.629V8.108c0-.345.282-.63.627-.63.349 0 .631.285.631.63v4.771zm-2.466.629H4.917c-.345 0-.63-.285-.63-.629V8.108c0-.345.285-.63.63-.63.348 0 .63.285.63.63v4.141h1.756c.348 0 .629.283.629.63 0 .344-.281.629-.629.629M24 10.314C24 4.943 18.615.572 12 .572S0 4.943 0 10.314c0 4.811 4.27 8.842 10.035 9.608.391.082.923.258 1.058.59.12.301.079.766.038 1.08l-.164 1.02c-.045.301-.24 1.186 1.049.645 1.291-.539 6.916-4.078 9.436-6.975C23.176 14.393 24 12.458 24 10.314"/></svg>
+        数組限定の先行モニター案内を受け取る
+      </a>
+    </div>
+    <p class="line-reassure">
+      LINE登録だけで、参加申込にはなりません。<br>
+      詳細が決まりしだい、ご家庭のタイミングでゆっくりご検討いただけます。
+    </p>
+  </div>
+</section>
+
+<!-- ====================================================
+  10 FAQ
+===================================================== -->
+<section class="sec sec--white" id="faq">
+  <div class="wrap">
+    <div class="faq-head fi">
+      <span class="en-label">FAQ</span>
+      <div class="sec-rule"></div>
+      <h2>よくあるご質問</h2>
+      <p class="faq-lead">正式募集前のため、実施時期・費用目安・詳細条件は準備が整いしだい公式LINEで先行してご案内します。<br>ここでは、LINE登録前に気になりやすい点をまとめています。</p>
+    </div>
+
+    <div class="faq-list fi">
+
+      <div class="faq-item">
+        <button class="faq-q" aria-expanded="false">
+          もう申し込みできますか？
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-a" role="region" aria-hidden="true">
+          <div class="faq-a-inner">
+            <p>現在は数組限定の先行モニタープランの準備中です。正式な申込受付はまだ開始していません。実施時期・費用目安・参加条件などが整いしだい、公式LINEにて先行してご案内します。</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-q" aria-expanded="false">
+          LINE登録したら、参加申込になりますか？
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-a" role="region" aria-hidden="true">
+          <div class="faq-a-inner">
+            <p>いいえ。LINE登録だけで参加申込にはなりません。まずは情報を受け取り、ご家庭に合うかどうかをゆっくりご検討いただけます。</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-q" aria-expanded="false">
+          まだ参加するか決めていなくても登録できますか？
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-a" role="region" aria-hidden="true">
+          <div class="faq-a-inner">
+            <p>はい。まだ迷っている方、情報収集の段階の方もご登録いただけます。数組限定の先行モニターの詳細が決まりしだい、LINEで先行してご案内します。</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-q" aria-expanded="false">
+          対象年齢はありますか？
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-a" role="region" aria-hidden="true">
+          <div class="faq-a-inner">
+            <p>主な対象は、小学生のお子さまと保護者です。未就学児や中学生については、ご家庭の状況や現地プログラムの内容、安全面を確認したうえで個別にご相談となります。</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-q" aria-expanded="false">
+          英語が話せなくても参加できますか？
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-a" role="region" aria-hidden="true">
+          <div class="faq-a-inner">
+            <p>英語力を前提にしたプログラムではありません。語学習得そのものよりも、親子で海外の環境に触れ、子どもに合う環境やこれからの関わり方を考えることを大切にしています。</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-q" aria-expanded="false">
+          実施場所はどこですか？
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-a" role="region" aria-hidden="true">
+          <div class="faq-a-inner">
+            <p>初期展開はフィリピンのセブ・ボラカイを中心に準備しています。将来的には他の国や地域への展開も検討していますが、現時点では数組限定の先行モニターの詳細が決まりしだいLINEでご案内します。</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-q" aria-expanded="false">
+          費用目安はどのくらいですか？
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-a" role="region" aria-hidden="true">
+          <div class="faq-a-inner">
+            <p>参加期間・現地教育プログラム内容・サポート範囲により変動します。詳細は数組限定の先行モニターの内容が整いしだい、LINE登録者へ先行してご案内します。</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-q" aria-expanded="false">
+          航空券や海外旅行保険は含まれますか？
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-a" role="region" aria-hidden="true">
+          <div class="faq-a-inner">
+            <p>航空券、海外旅行保険、パスポート取得費などは参加者ご自身のご負担となります。詳しい費用範囲は、正式案内時に分かりやすくお伝えします。</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-q" aria-expanded="false">
+          現地で困ったときの相談先はありますか？
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-a" role="region" aria-hidden="true">
+          <div class="faq-a-inner">
+            <p>数組限定の先行モニターでは、現地での基本的な相談窓口やサポート体制を確認しながら準備を進めています。具体的なサポート範囲は、プログラム詳細とあわせてご案内します。</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-q" aria-expanded="false">
+          親子でずっと一緒に参加する形ですか？
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-a" role="region" aria-hidden="true">
+          <div class="faq-a-inner">
+            <p>基本は親子参加型です。一部プログラムでは、内容や安全面、受け入れ体制に応じて、保護者とお子さまが部分的に別行動となる可能性もあります。詳細は個別にご相談となります。</p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="faq-cta-note fi">
+      <p>ここにないご質問や、ご家庭ごとの不安がある場合も、まずは公式LINEで情報を受け取ってください。<br>数組限定の先行モニターの詳細が整いしだい、LINE登録者へ先行してご案内します。</p>
+      <a href="#line-cta" class="btn-line">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M19.365 9.863c.349 0 .63.285.63.631 0 .345-.281.63-.63.63H17.61v1.125h1.755c.349 0 .63.283.63.63 0 .344-.281.629-.63.629h-2.386c-.345 0-.627-.285-.627-.629V8.108c0-.345.282-.63.627-.63h2.386c.349 0 .63.285.63.63 0 .349-.281.63-.63.63H17.61v1.125h1.755zm-3.855 3.016c0 .27-.174.51-.432.596-.064.021-.133.031-.199.031-.211 0-.391-.09-.51-.25l-2.443-3.317v2.94c0 .344-.279.629-.631.629-.346 0-.626-.285-.626-.629V8.108c0-.27.173-.51.43-.595.06-.023.136-.033.194-.033.195 0 .375.104.495.254l2.462 3.33V8.108c0-.345.282-.63.63-.63.345 0 .63.285.63.63v4.771zm-5.741 0c0 .344-.282.629-.631.629-.345 0-.627-.285-.627-.629V8.108c0-.345.282-.63.627-.63.349 0 .631.285.631.63v4.771zm-2.466.629H4.917c-.345 0-.63-.285-.63-.629V8.108c0-.345.285-.63.63-.63.348 0 .63.285.63.63v4.141h1.756c.348 0 .629.283.629.63 0 .344-.281.629-.629.629M24 10.314C24 4.943 18.615.572 12 .572S0 4.943 0 10.314c0 4.811 4.27 8.842 10.035 9.608.391.082.923.258 1.058.59.12.301.079.766.038 1.08l-.164 1.02c-.045.301-.24 1.186 1.049.645 1.291-.539 6.916-4.078 9.436-6.975C23.176 14.393 24 12.458 24 10.314"/></svg>
+        数組限定の先行モニター案内を受け取る
+      </a>
+    </div>
+
+  </div>
+</section>
+
+<!-- ====================================================
+  11 FINAL CTA
+===================================================== -->
+<section class="final-sec">
+  <div class="final-bg"></div>
+  <div class="final-overlay"></div>
+  <div class="final-content fi">
+    <span class="final-en">Hidamari Lab · 親子海外トライアル</span>
+    <h2 class="final-h2">
+      海外を決めるためではなく、<br>
+      まだ決めないために、まず試す。
+    </h2>
+    <p class="final-sub">
+      この子に合う環境を、親子で一緒に考えるための入口。<br>
+      語学でも観光でもない、次の選択のための短期トライアルです。
+    </p>
+    <span class="final-micro">まずは情報を受け取るだけでも大丈夫です。</span>
+    <a href="#line-cta" class="btn-line" style="background:rgba(255,255,255,0.15);color:#ffffff;border:1.5px solid rgba(255,255,255,0.55);box-shadow:0 4px 22px rgba(44,62,80,0.22);">
+      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M19.365 9.863c.349 0 .63.285.63.631 0 .345-.281.63-.63.63H17.61v1.125h1.755c.349 0 .63.283.63.63 0 .344-.281.629-.63.629h-2.386c-.345 0-.627-.285-.627-.629V8.108c0-.345.282-.63.627-.63h2.386c.349 0 .63.285.63.63 0 .349-.281.63-.63.63H17.61v1.125h1.755zm-3.855 3.016c0 .27-.174.51-.432.596-.064.021-.133.031-.199.031-.211 0-.391-.09-.51-.25l-2.443-3.317v2.94c0 .344-.279.629-.631.629-.346 0-.626-.285-.626-.629V8.108c0-.27.173-.51.43-.595.06-.023.136-.033.194-.033.195 0 .375.104.495.254l2.462 3.33V8.108c0-.345.282-.63.63-.63.345 0 .63.285.63.63v4.771zm-5.741 0c0 .344-.282.629-.631.629-.345 0-.627-.285-.627-.629V8.108c0-.345.282-.63.627-.63.349 0 .631.285.631.63v4.771zm-2.466.629H4.917c-.345 0-.63-.285-.63-.629V8.108c0-.345.285-.63.63-.63.348 0 .63.285.63.63v4.141h1.756c.348 0 .629.283.629.63 0 .344-.281.629-.629.629M24 10.314C24 4.943 18.615.572 12 .572S0 4.943 0 10.314c0 4.811 4.27 8.842 10.035 9.608.391.082.923.258 1.058.59.12.301.079.766.038 1.08l-.164 1.02c-.045.301-.24 1.186 1.049.645 1.291-.539 6.916-4.078 9.436-6.975C23.176 14.393 24 12.458 24 10.314"/></svg>
+      数組限定の先行モニター案内を受け取る
+    </a>
+    <p style="font-size:11px;color:rgba(255,255,255,0.38);margin-top:18px;font-family:var(--ff-en);letter-spacing:0.14em;text-transform:uppercase;">Hidamari Lab</p>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <p class="footer-name">陽だまりラボ <span style="font-family:var(--ff-en);font-weight:300;font-size:12px;letter-spacing:0.14em;opacity:0.55;">/ Hidamari Lab</span></p>
+    <div class="footer-links">
+      <a href="privacy.html">プライバシーポリシー</a>
+      <a href="tokushoho.html">特定商取引法に基づく表記</a>
+      <a href="#">お問い合わせ</a>
+    </div>
+    <p class="footer-copy">© 2026 陽だまりラボ. All Rights Reserved.</p>
+  </div>
+</footer>
+
+<!-- MOBILE STICKY CTA -->
+<div class="mob-cta-bar" id="mob-cta" aria-hidden="true">
+  <a href="#line-cta" class="btn-line" tabindex="-1">
+    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M19.365 9.863c.349 0 .63.285.63.631 0 .345-.281.63-.63.63H17.61v1.125h1.755c.349 0 .63.283.63.63 0 .344-.281.629-.63.629h-2.386c-.345 0-.627-.285-.627-.629V8.108c0-.345.282-.63.627-.63h2.386c.349 0 .63.285.63.63 0 .349-.281.63-.63.63H17.61v1.125h1.755zm-3.855 3.016c0 .27-.174.51-.432.596-.064.021-.133.031-.199.031-.211 0-.391-.09-.51-.25l-2.443-3.317v2.94c0 .344-.279.629-.631.629-.346 0-.626-.285-.626-.629V8.108c0-.27.173-.51.43-.595.06-.023.136-.033.194-.033.195 0 .375.104.495.254l2.462 3.33V8.108c0-.345.282-.63.63-.63.345 0 .63.285.63.63v4.771zm-5.741 0c0 .344-.282.629-.631.629-.345 0-.627-.285-.627-.629V8.108c0-.345.282-.63.627-.63.349 0 .631.285.631.63v4.771zm-2.466.629H4.917c-.345 0-.63-.285-.63-.629V8.108c0-.345.285-.63.63-.63.348 0 .63.285.63.63v4.141h1.756c.348 0 .629.283.629.63 0 .344-.281.629-.629.629M24 10.314C24 4.943 18.615.572 12 .572S0 4.943 0 10.314c0 4.811 4.27 8.842 10.035 9.608.391.082.923.258 1.058.59.12.301.079.766.038 1.08l-.164 1.02c-.045.301-.24 1.186 1.049.645 1.291-.539 6.916-4.078 9.436-6.975C23.176 14.393 24 12.458 24 10.314"/></svg>
+    先行案内を受け取る
+  </a>
+</div>
+
+<script>
+'use strict';
+(function() {
+
+  /* ── Scroll Fade In ── */
+  var fadeEls = document.querySelectorAll('.fi');
+  if ('IntersectionObserver' in window) {
+    var obs = new IntersectionObserver(function(entries) {
+      entries.forEach(function(e) {
+        if (e.isIntersecting) {
+          e.target.classList.add('vis');
+          obs.unobserve(e.target);
+        }
+      });
+    }, { threshold: 0.1, rootMargin: '0px 0px -36px 0px' });
+    fadeEls.forEach(function(el) { obs.observe(el); });
+  } else {
+    fadeEls.forEach(function(el) { el.classList.add('vis'); });
+  }
+
+  /* ── Hero immediate reveal ── */
+  document.querySelectorAll('.hero .fi').forEach(function(el) {
+    el.classList.add('vis');
+  });
+
+  /* ── FAQ Accordion ── */
+  document.querySelectorAll('.faq-q').forEach(function(btn) {
+    btn.addEventListener('click', function() {
+      var item   = btn.closest('.faq-item');
+      var isOpen = item.classList.contains('open');
+      document.querySelectorAll('.faq-item.open').forEach(function(o) {
+        o.classList.remove('open');
+        o.querySelector('.faq-q').setAttribute('aria-expanded', 'false');
+        var a = o.querySelector('.faq-a');
+        if (a) { a.style.maxHeight = null; a.setAttribute('aria-hidden', 'true'); }
+      });
+      if (!isOpen) {
+        item.classList.add('open');
+        btn.setAttribute('aria-expanded', 'true');
+        var body = item.querySelector('.faq-a');
+        if (body) {
+          body.style.maxHeight = body.scrollHeight + 'px';
+          body.setAttribute('aria-hidden', 'false');
+        }
+      }
+    });
+  });
+
+  /* ── Mobile sticky CTA ── */
+  var hero   = document.getElementById('hero');
+  var mobCta = document.getElementById('mob-cta');
+  if (hero && mobCta) {
+    var onScroll = function() {
+      var passed = hero.getBoundingClientRect().bottom < 0;
+      mobCta.classList.toggle('vis', passed);
+      mobCta.setAttribute('aria-hidden', String(!passed));
+      var link = mobCta.querySelector('a');
+      if (link) link.tabIndex = passed ? 0 : -1;
+    };
+    window.addEventListener('scroll', onScroll, { passive: true });
+    onScroll();
+  }
+
+  /* ── Smooth scroll ── */
+  document.querySelectorAll('a[href^="#"]').forEach(function(a) {
+    a.addEventListener('click', function(e) {
+      var href = a.getAttribute('href');
+      if (href === '#') { e.preventDefault(); window.scrollTo({ top: 0, behavior: 'smooth' }); return; }
+      var target = document.querySelector(href);
+      if (!target) return;
+      e.preventDefault();
+      var nav = document.querySelector('.nav');
+      var offset = (nav ? nav.offsetHeight : 0) + 12;
+      window.scrollTo({ top: target.getBoundingClientRect().top + window.scrollY - offset, behavior: 'smooth' });
+    });
+  });
+
+})();
+</script>
+</body>
+</html>
